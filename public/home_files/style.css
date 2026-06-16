@@ -1,0 +1,1132 @@
+.f-nHeader {
+}
+
+.cf:after,.clr {
+	clear: both
+}
+
+.f-lstGame li a,.f-nUser .fn-userName {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden
+}
+
+.cf:after,.cf:before {
+	content: "";
+	display: table
+}
+
+.f-nList .f-nGame,.f-nLogo a {
+	display: block;
+	text-indent: -999em;
+	height: 30px
+}
+
+.rs {
+	margin: 0;
+	padding: 0
+}
+
+ul.rs {
+	list-style: none
+}
+
+.fBo {
+	font-weight: 700
+}
+
+.fNo {
+	font-weight: 400
+}
+
+.fSi {
+	font-style: italic
+}
+
+.fSn {
+	font-style: normal
+}
+
+.pAbs {
+	position: absolute
+}
+
+.f-nHeader,.pRel {
+	position: relative
+}
+
+.pSta {
+	position: static
+}
+
+.fll {
+	float: left
+}
+
+.flr {
+	float: right
+}
+
+.fln {
+	float: none
+}
+
+.clr {
+	font-size: 0
+}
+
+#f-navTop {
+	font-family: Tahoma,Arial,Helvetica,sans-serif!important;
+	font-size: 14px;
+	color: #212121
+}
+
+.f-nspr {
+	background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/f-nspr.png) no-repeat
+}
+
+.f-nHinner {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1024px
+}
+
+.f-nHeader {
+	height: 30px;
+	background: #fff;
+	border-bottom: 1px solid #e5e5e5;
+	z-index: 100
+}
+
+.f-nList,.f-nLogo {
+	position: relative;
+	z-index: 99
+}
+
+.f-nLogo {
+	padding-right: 10px
+}
+
+.f-nLogo a {
+	background-position: 0 0;
+	width: 83px
+}
+
+.mob-en .f-nLogo a {
+	width: 127px;
+	background-position: -83px 0
+}
+
+.f-nList {
+	background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/line.png) 0 50% no-repeat;
+	height: 30px;
+}
+
+.f-nList .f-nGame {
+	width: 117px;
+	background-position: 30px -30px;
+	padding: 0 20px
+}
+
+.f-nList .f-nListGame {
+	display: none;
+	position: absolute;
+	top: 29px;
+	left: 0;
+	width: 635px;
+	padding-right: 15px;
+	border-top: 2px solid #f14308;
+	background: #fff;
+	z-index: 1000;
+	-webkit-box-shadow: 0 1px 1px 1px transparent;
+	-moz-box-shadow: 0 1px 1px 1px rgba(0,0,0,.2);
+	box-shadow: 0 1px 1px 1px rgba(0,0,0,.2)
+}
+
+.mob-en .f-nList .f-nListGame {
+	width: 425px;
+	border-color: #d72828
+}
+
+.mob-en .f-nBeforeLogin .email {
+	border-color: #CE3C3B;
+	background: #CE3C3B
+}
+
+.mob-en .f-nBeforeLogin .f-nLogin {
+	border-top: 2px solid #CE3C3B
+}
+
+.f-lstGame {
+	padding-top: 10px!important
+}
+
+.f-lstGame li {
+	padding: 0 0 0 15px;
+	float: left;
+	width: 205px
+}
+
+.f-lstGame li a {
+	display: inline-block;
+	position: relative;
+	padding-left: 35px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	color: #212121;
+	max-width: 100%;
+	margin-bottom: 10px;
+	padding-right: 25px
+}
+
+.f-lstGame li a:hover {
+	color: #f14308
+}
+
+.f-lstGame li .mGameThumb {
+	top: 0;
+	left: 0;
+	display: block;
+	width: 30px;
+	height: 30px
+}
+
+.f-nQC {
+	position: relative;
+	z-index: 1;
+}
+
+.f-nQC .f-nBanner {
+	display: block;
+	width: 360px;
+	height: 29px
+}
+
+.f-nQC .f-nBanner img {
+	height: 29px
+}
+
+.f-nQC .f-nBannerBig {
+	position: absolute;
+	top: -1px;
+	display: none;
+	left: -210px;
+	background: #fff
+}
+
+.f-nBeforeLogin,.f-nBoxLogin {
+	position: relative
+}
+
+.f-nBoxLogin {
+	height: 30px;
+	z-index: 99;
+	color: #575757;
+	font-size: 13px
+}
+
+.f-nLoginPC {
+	display: block
+}
+
+.f-nBeforeLogin .f-nBLogin {
+	display: block;
+	height: 30px;
+	color: #575757;
+	padding: 0 20px 0 35px;
+	background-position: 10px -60px;
+	line-height: 30px
+}
+
+.f-nBeforeLogin .f-nLogin {
+	position: absolute;
+	right: 0;
+	top: 29px;
+	display: none;
+	background: #fff;
+	z-index: 100;
+	padding: 14px 12px;
+	-webkit-box-shadow: 0 1px 1px 1px transparent;
+	-moz-box-shadow: 0 1px 1px 1px rgba(0,0,0,.2);
+	box-shadow: 0 1px 1px 1px rgba(0,0,0,.2);
+	border-top: 2px solid #f14308
+}
+
+.f-nBeforeLogin .btn-login {
+	display: block;
+	width: 200px;
+	height: 40px;
+	margin: 0 auto 10px;
+	border: 1px solid;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	color: #fff;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+.f-nBeforeLogin .f-nfacebook:hover,.f-nBeforeLogin .f-ngoogle:hover {
+	color: #fff
+}
+
+.f-nBeforeLogin .f-nfacebook:before,.f-nBeforeLogin .f-ngoogle:before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 38px;
+	height: 38px;
+	left: 0;
+	top: 0;
+	background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/f-nspr.png) no-repeat
+}
+
+.f-nBeforeLogin .f-nfacebook {
+	background: #3e5b91;
+	border-color: #3e5b91
+}
+
+.f-nBeforeLogin .f-nfacebook:before {
+	background-position: 0 -90px
+}
+
+.f-nBeforeLogin .f-ngoogle {
+	background: #ed3d3a;
+	border-color: #ed3d3a
+}
+
+.f-nBeforeLogin .f-ngoogle:before {
+	background-position: -38px -90px
+}
+
+.f-nBeforeLogin .email {
+	color: #fff;
+	border-color: #f14308;
+	margin-top: 2px;
+	padding: 0;
+	background: #f14308;
+	cursor: pointer
+}
+
+.f-nBeforeLogin .text-center {
+	text-align: center;
+	color: #a9a9a9;
+	font-size: 14px;
+	margin-bottom: 10px;
+	position: relative
+}
+
+.f-nBeforeLogin .text-center:after,.f-nBeforeLogin .text-center:before {
+	width: 20%;
+	height: 1px;
+	position: absolute;
+	top: 50%;
+	background: #ebebeb;
+	display: block;
+	content: ''
+}
+
+.f-nBeforeLogin .text-center:before {
+	left: 0
+}
+
+.f-nBeforeLogin .text-center:after {
+	right: 0
+}
+
+.f-nBeforeLogin .input-login {
+	height: 40px;
+	background: #d8dfea;
+	border: none;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	margin: 0 auto 11px;
+	width: 100%;
+	color: #777;
+	-webkit-appearance: none;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 14px;
+	padding: 10px 13px;
+	display: block
+}
+
+.f-nBeforeLogin .text-pass {
+	text-align: center
+}
+
+.text-pass a {
+	color: #565656
+}
+
+.f-nAfterLogin .f-nLogout:hover,.text-pass a:hover {
+	color: #f14308
+}
+
+button:focus {
+	outline: 0
+}
+
+.f-nAfterLogin {
+	padding-right: 10px
+}
+
+.f-nUser {
+	padding: 0 10px 0 25px;
+	max-width: 150px;
+	overflow: hidden;
+	position: relative
+}
+
+.f-nMedal,.f-nUser .mem-thumb {
+	position: absolute;
+	margin-top: -10px;
+	display: block;
+	top: 50%
+}
+
+.f-nUser .mem-thumb {
+	left: 10px;
+	overflow: hidden;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	width: 20px;
+	height: 20px
+}
+
+.f-nUser .fn-userName {
+	display: block;
+	cursor: default;
+	color: #212121
+}
+
+.f-nMedal {
+	height: 19px;
+	width: 34px;
+	background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/ico-vip.png) no-repeat;
+	right: 8px
+}
+
+.f-nMedal.f-ndiamon {
+	background-position: 0 -76px
+}
+
+.f-nMedal.f-ngodl3 {
+	background-position: 0 -57px
+}
+
+.f-nMedal.f-ngodl2 {
+	background-position: 0 -38px
+}
+
+.f-nMedal.f-ngodl1 {
+	background-position: 0 -19px
+}
+
+.f-nMedal.f-nsliver {
+	background-position: 0 0
+}
+
+.f-nMedal.f-nwr {
+	background-position: 0 -95px
+}
+
+.f-nMedal.f-nthuong {
+	background-position: 0 -114px
+}
+
+.f-nLogout {
+	display: block;
+	background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/line.png) 0 50% no-repeat;
+	cursor: pointer;
+	padding: 0 10px!important
+}
+
+.f-nAfterLogin .f-nLogout,.f-nAfterLogin .f-nUser {
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	color: #575757;
+	padding: 0 10px 0 35px
+}
+
+.f-nLoginMB {
+	display: none
+}
+
+.box-nt {
+	padding: 0 10px 0 0;
+	background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/line.png) 100% 50% no-repeat;
+	position: relative;
+	z-index: 99
+}
+
+.box-nt a {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 25px;
+	background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/f-bnt.png) 0 50% no-repeat;
+	background-size: 20px 20px;
+	color: #575757
+}
+
+.box-nt a:hover {
+	color: #f14308
+}
+
+.f-nBoxTitle li a,.text-Reg {
+	color: #666;
+	text-align: center
+}
+
+@media(max-width: 812px) {
+	.f-nBannerBig,.f-nList {
+		display:none
+	}
+}
+
+@media(max-width: 812px) {
+	.box-nt a,.f-nBeforeLogin .f-nBLogin {
+		line-height:40px;
+		height: 40px
+	}
+
+	.box-nt a,.f-nBeforeLogin .f-nBLogin,.f-nBoxLogin,.f-nHeader,.f-nLoginMB,.f-nLogo a {
+		height: 40px
+	}
+
+	.f-nspr {
+		background: url(https://a.smobgame.com/plf/uncommon/navtop-login/images/f-nsprm.png) no-repeat;
+		background-size: 100px 200px
+	}
+
+	.f-nQC {
+		display: none
+	}
+
+	.f-nLogo {
+		background: 0 0;
+		padding-right: 0
+	}
+
+	.f-nLogo a {
+		display: block;
+		text-indent: -999em;
+		background-position: 0 0;
+		width: 97px
+	}
+
+	.mob-en .f-nLogo a {
+		width: 97px;
+		background-position: 0 -120px
+	}
+
+	.f-nBeforeLogin .f-nBLogin {
+		font-size: 14px;
+		background-position: 10px -40px;
+		padding: 0 10px 0 40px;
+		white-space: nowrap;
+		border: none;
+		outline: 0
+	}
+
+	.f-nLoginPC {
+		/* display:none */
+	}
+
+	.f-nLoginMB {
+		display: block;
+		overflow: hidden
+	}
+
+	.f-nAfterLogin .f-nLogout,.f-nAfterLogin .f-nUser {
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px
+	}
+
+	.f-nUser {
+		max-width: 107px;
+		padding-right: 0!important;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis
+	}
+
+	.f-nMedal {
+		right: 0
+	}
+}
+
+@media(max-width: 1024px) {
+	.f-nLogo {
+		padding-left:10px
+	}
+}
+@media (max-width: 640px){
+	#ads-list{
+		margin: 0 -20px;
+	}
+}
+iframe[name=f-ngoogle_conversion_frame],iframe[name=google_conversion_frame] {
+	display: none
+}
+
+.f-nModalLogin {
+	width: 320px;
+	height: 400px;
+	background: #fff;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -200px 0 0 -160px;
+	padding: 0 0 20px;
+	border-radius: 2px;
+	-moz-border-radius: 2px
+}
+
+.f-nModalLogin .btn-login {
+	width: 100%!important
+}
+
+.f-nTab {
+	padding: 0 25px;
+	background: 0 0!important;
+	height: auto!important
+}
+
+.f-nBoxTitle {
+	margin-bottom: 15px!important
+}
+
+.f-nBoxTitle li {
+	float: left;
+	width: 50%
+}
+
+.f-nBoxTitle li a {
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background-color: #e6e7e8
+}
+
+.f-nBoxTitle li.active a {
+	background-color: #fff
+}
+
+.text-Reg {
+	margin-bottom: 10px;
+	font-size: 18px
+}
+
+.f-nBClose {
+	display: block;
+	background: #494646;
+	position: absolute;
+	right: -8px;
+	top: -8px;
+	width: 26px;
+	height: 26px;
+	text-align: center;
+	line-height: 21px;
+	color: #A0A0A0;
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	font-size: 16px;
+	font-weight: 700;
+	border: 2px solid rgba(121,121,121,.65)
+}
+
+.f-nBClose:hover {
+	color: #fff
+}
+
+#Login label.error,#Reg label.error,#Reg2 label.error {
+	position: absolute;
+	bottom: -22px;
+	font-size: 11px;
+	color: red;
+	font-weight: 400
+}
+
+.f-nModalLogin .f-nBeforeLogin p {
+	position: relative
+}
+
+.f-nModalLogin .f-nBeforeLogin .input-login {
+	margin-bottom: 20px
+}
+
+.text-fb2 {
+	margin: 40px 0 10px!important;
+	font-size: 13px;
+	color: #212121
+}
+
+#error-update {
+	font-size: 11px
+}
+
+.f-loading {
+	background: rgba(0,0,0,.3);
+	position: fixed!important;
+	z-index: 9999;
+	width: 100%;
+	height: 100%
+}
+
+.f-loading:before {
+	content: " ";
+	display: block;
+	width: 60px;
+	height: 60px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 6px solid #fff;
+	border-color: #fff transparent #fff transparent;
+	animation: lds-dual-ring 1.2s linear infinite;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -30px 0 0 -30px;
+}
+
+@keyframes lds-dual-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.f-gnew {
+	background: url(../img/new.gif) 100% 50% no-repeat
+}
+
+.f-ghot {
+	background: url(../img/hot.gif) 100% 50% no-repeat
+}
+
+.sitebt {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+	padding-top: 40px
+}
+
+.btn-cnm {
+	display: block;
+	height: 39px;
+	text-align: center;
+	background: url('../img/nt1.png');
+	margin: 5px 0;
+}
+
+.btn-cnm1 {
+	background-position: 0 -152px
+}
+
+.btn-cnm2 {
+	background-position: -123px -152px
+}
+
+.box-cnhd {
+	display: none
+}
+
+.box-adpop {
+	width: 100%;
+	max-width: 650px;
+	height: auto;
+	z-index: 5
+}
+
+.mdl-close {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: #000;
+	color: #fff !important;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.box-adpop img {
+	display: block;
+	width: 100%;
+	max-width: 100%
+}
+
+.fb-like {
+	display: block !important;
+	width: 100%;
+	overflow: hidden;
+}
+
+.muafuncard {
+	display: block;
+	width: 122px;
+	height: 86px;
+	background: url("../img/mtfc.png");
+}
+
+#footerEn {
+	margin-top: 57px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 16px;
+	padding: 37px 0;
+	background: #181818;
+}
+
+.footerEnLanding {
+	margin-top: 0px !important;
+}
+
+#footerEn .logoEn a {
+	width: inherit;
+	height: inherit;
+}
+
+#footerEn .logoEn {
+	margin: 0 auto 17px;
+	width: 198px;
+	height: 40px;
+}
+
+#footerEn .linklists li {
+	display: inline-block;
+	margin: 0 12px;
+}
+
+#footerEn .linklists li a {
+	color: #fff;
+}
+
+#footerEn .linklists li a:hover {
+	color: #ff6a07;
+}
+
+#footerEn .linklists, #footerEn .socialBox {
+	margin-bottom: 13px;
+}
+
+#footerEn .vcard {
+	font-size: 14px;
+}
+
+#footerEn .logoEn a {
+	display: block;
+	text-indent: -9999em;
+	background: url("") no-repeat;
+	background-size: 100%;
+}
+
+.lg18 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 10;
+}
+
+.banner-bottom {
+	position: fixed !important;
+	bottom: 0;
+	left: 50%;
+	margin-left: -175px;
+	z-index: 98;
+}
+
+@media (max-width: 1023px) {
+	.banner-bottom {
+		bottom: 60px;
+	}
+
+	.box-cnhd {
+		display: block;
+		width: 100%;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		z-index: 50;
+		background: #fff;
+		border-top: 1px solid #cecece;
+	}
+
+	.box-cnhd a {
+		display: block;
+		color: #212121 !important;
+	;float: left;
+		font-size: 12px;
+		width: 25%;
+		margin: 0;
+		height: 55px;
+		position: relative;
+		background: transparent;
+		text-align: center;
+		padding-top: 36px;
+		text-transform: uppercase;
+	}
+
+	.box-cnhd a:before {
+		content: '';
+		display: block;
+		width: 63px;
+		height: 38px;
+		background: url('../img/nt1.png');
+		background-size: 200px 200px;
+		position: absolute;
+		top: 7px;
+		left: 50%;
+		margin-left: -31.5px;
+	}
+
+	.box-cnhd a:last-child {
+		border: none
+	}
+
+	.btn-cnm3:before {
+		background-position: 0 0
+	}
+
+	.btn-cnm4:before {
+		background-position: 0 -38px !important;
+	}
+
+	.btn-cnm41:before {
+		background: url(../img/mbfc.png) 0 0 no-repeat !important;
+		width: 81px !important;
+		margin-left: -40.5px !important;
+	}
+
+	.btn-cnm5:before {
+		background-position: -63px 0 !important;
+	}
+
+	.btn-cnm6:before {
+		background-position: 0 -38px !important;
+	}
+
+	@media screen and (orientation: portrait) {
+		.box-adpop {
+			padding: 0 15px
+		}
+
+		.mdl-close {
+			right: 15px
+		}
+	}
+
+	@media screen and (orientation: landscape) {
+		.box-adpop {
+			width: 400px
+		}
+	}
+
+	.lg18 {
+		top: 60px !important;
+		width: 120px !important;
+	}
+}
+
+.pub_300x250.pub_300x250m {
+	display: none
+}
+
+.cnt {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+#tab9 .navtabs {
+	display: none;
+}
+
+.main_ct_left {
+	min-height: 280px;
+}
+
+.box-detail .dataBody table {
+	width: auto !important;
+	max-width: 100% !important;
+}
+
+.box-detail .dataBody img {
+	max-width: 100% !important;
+}
+
+@media (max-width: 1023px)
+{
+	#tab9 {
+		margin-top: 10px;
+		height: auto;
+		min-height: 200px;
+		display: block !important;
+	}
+
+	#tab9 .navtabs ul li a {
+		background: #222;
+		color: #fff;
+		pointer-events: none;
+		cursor: default;
+	}
+
+	#tab9 .navtabs {
+		display: block;
+	}
+
+	.box-dlmb .btn-dls {
+		border: 1px solid #fff;
+		border-radius: 2px;
+	}
+
+	.box-dlmb .btn-dls.android{
+		background: #000 url(../img/all_android.png) no-repeat !important;
+		background-size: 100% 100% !important;
+	}
+
+	.box-dlmb .btn-dls.ios{
+		background: #000 url(../img/all_ios.png) no-repeat !important;
+		background-size: 100% 100% !important;
+	}
+
+
+
+	.fb_dialog.fb_dialog_mobile.fb_customer_chat_bubble_animated_no_badge.fb_customer_chat_bubble_pop_in, .fb_dialog.fb_dialog_mobile.fb_customer_chat_bubble_pop_in.fb_customer_chat_bubble_animated_with_badge {
+		top: inherit !important;
+		bottom: 63px !important;
+	}
+
+	#footerEn {
+		margin-top: 37px;
+		padding: 27px 15px;
+		font-size: 13px;
+	}
+
+	.footerEnLanding {
+		margin-top: 0px !important;
+	}
+
+	#footerEn .logoEn {
+		width: 135px;
+		height: 27px;
+		margin-bottom: 12px;
+	}
+
+	#footerEn .linklists li {
+		display: block;
+		margin: 0;
+		line-height: 28px;
+	}
+
+	#footerEn .linklists, #footerEn .socialBox {
+		margin-bottom: 8px;
+	}
+
+	#footerEn .vcard {
+		font-size: inherit;
+	}
+}
+@media (max-width: 1024px) {
+	.menu-mb .btn-dlhp.android{
+		background: #000 url(../img/android.svg) no-repeat !important;
+		background-size: 100%   !important;
+	}
+	.menu-mb .btn-dlhp.apk{
+		background: #000 url(../img/apk.svg) no-repeat !important;
+		background-size: 100%  !important;
+		border: 1px solid #868686;
+		border-radius: 4px;
+	}
+	.menu-mb .btn-dlhp.ios {
+		background: #000 url(../img/ios1.svg) no-repeat !important;
+		background-size: 100%  !important;
+	}
+	.btn-dlhp{
+		display: block;
+		/* position: absolute; */
+		/* top: 50%; */
+		/* margin-top: -26px; */
+		background-size: 400px;
+		width: 170px;
+		height: 51px;
+		/* vertical-align: middle; */
+	}
+	.btn-dlhp.android{margin-left: 10px;}
+}
+@media (max-width: 640px) {
+	.btn-dlhp{
+		/* right: 50px; */
+		width: 120px;
+		height: 36px;
+		/* margin-top: -19px; */
+	}
+	.btn-dlhp.apk{
+		right: 175px;
+		height: 37px;
+	}
+	.btn-dlhp.android{margin-left: 10px;}
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+	li.tab2 {
+		display: none;
+	}
+}
+
+iframe {
+	max-width: 100%;
+}
+
+.comming-soon {
+	width: 310px;
+	padding: 50px 0;
+	text-align: center;
+	font-size: 25px;
+	color: #333;
+	background: #fff;
+	border-radius: 15px;
+}
+
+.closeModal {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background: #f44e19;
+	color: #fff !important;
+	border-radius: 50%;
+	line-height: 36px;
+	text-align: center;
+	top: -17px;
+	right: -17px;
+	font-size: 32px;
+}
+.content-detail table{
+	max-width: 100% !important;
+	width: auto !important;
+}

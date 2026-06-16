@@ -1,0 +1,58 @@
+<svg viewBox="0 0 1080 101" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a23030"/>
+      <stop offset="48%" stop-color="#7a1414"/>
+      <stop offset="100%" stop-color="#560c0c"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff6d8"/>
+      <stop offset="45%" stop-color="#ffd877"/>
+      <stop offset="100%" stop-color="#c9a227"/>
+    </linearGradient>
+    <linearGradient id="goldGradH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9a227"/>
+      <stop offset="50%" stop-color="#fff6d8"/>
+      <stop offset="100%" stop-color="#c9a227"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ribbon body with pennant-notched ends -->
+  <path d="M152,10 L928,10 L964,50.5 L928,91 L152,91 L188,50.5 Z"
+        fill="url(#ribbonGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+
+  <!-- inner thin border -->
+  <path d="M160,17 L922,17 L950,50.5 L922,84 L160,84 L188,50.5 Z"
+        fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.55"/>
+
+  <!-- small corner accents -->
+  <path d="M170,24 L184,24 M170,24 L170,38" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M910,24 L896,24 M910,24 L910,38" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M170,77 L184,77 M170,77 L170,63" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M910,77 L896,77 M910,77 L910,63" stroke="url(#goldGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Left ornament: cloud + medallion -->
+  <g transform="translate(76,50.5)">
+    <path d="M-58,0 C-50,-16 -28,-22 -10,-14 C0,-22 18,-20 24,-8 C36,-10 48,-2 46,10 C50,20 40,30 28,28 C20,36 4,36 -4,28 C-18,32 -34,24 -36,10 C-50,12 -62,4 -58,0 Z"
+          fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.85"/>
+    <circle r="14" fill="url(#ribbonGrad)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <path d="M0,-8 L7,0 L0,8 L-7,0 Z" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Right ornament: mirrored -->
+  <g transform="translate(1004,50.5) scale(-1,1)">
+    <path d="M-58,0 C-50,-16 -28,-22 -10,-14 C0,-22 18,-20 24,-8 C36,-10 48,-2 46,10 C50,20 40,30 28,28 C20,36 4,36 -4,28 C-18,32 -34,24 -36,10 C-50,12 -62,4 -58,0 Z"
+          fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.85"/>
+    <circle r="14" fill="url(#ribbonGrad)" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <path d="M0,-8 L7,0 L0,8 L-7,0 Z" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- decorative line under text -->
+  <rect x="330" y="68" width="420" height="1.5" fill="url(#goldGradH)" opacity="0.6"/>
+
+  <!-- Title text -->
+  <text x="540" y="58" text-anchor="middle"
+        font-family="'Noto Serif', 'Times New Roman', serif" font-weight="700"
+        font-size="32" letter-spacing="8" fill="url(#goldGrad)"
+        stroke="#4a0c0c" stroke-width="0.6" paint-order="stroke">HỆ THỐNG MÔN PHÁI</text>
+</svg>

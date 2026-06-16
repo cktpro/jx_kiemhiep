@@ -1,0 +1,270 @@
+@charset "utf-8";
+/*
+  (tính năng mới, không có trong code gốc)
+  Giao diện mới cho trang Đăng nhập / Đăng ký - card kính mờ (glassmorphism),
+  bo góc, icon trong input, nút bấm có gradient + hiệu ứng hover.
+  File này nạp SAU id_login.css để override mà không sửa file gốc.
+*/
+
+/*
+  (tính năng mới, không có trong code gốc)
+  Override cho navbar copy từ trang chủ (home_files/styles.css, nạp ở
+  layouts/auth.blade.php) khi dùng trên trang Đăng nhập / Đăng ký:
+  - .header ở trang chủ có chiều cao cố định lớn (vùng hero ảnh nền); ở đây
+    chỉ cần chiều cao vừa đủ cho menu nên đặt height: auto.
+  - .bg-new mặc định có ảnh nền riêng của trang chủ (bg-kiem-hiep.webp); bỏ
+    ảnh nền này vì trang đăng nhập/đăng ký đã có ảnh nền riêng (bg_login /
+    bg_register) đặt trên <body>. Vẫn giữ class .bg-new để có padding-top bù
+    chiều cao topnav cố định trên mobile (xem styles.css).
+  - body { background: #fff !important } trong styles.css đè lên ảnh nền
+    đăng nhập/đăng ký -> dùng CSS custom property --auth-bg-image (đặt qua
+    inline style trên <body>, xem layouts/auth.blade.php) + !important để
+    thắng (cùng !important thì file nạp sau - id_login_v2.css - thắng).
+*/
+.header {
+    height: auto !important;
+}
+
+.bg-new {
+    background: none !important;
+}
+
+body {
+    background-image: var(--auth-bg-image, url('/img/bgHero_shxt.png')) !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed !important;
+}
+
+.main_login {
+    margin-top: 30px;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+}
+
+.auth-logo {
+    display: block;
+    margin: 0 auto 18px;
+    max-width: 130px;
+    width: 100%;
+    height: auto;
+}
+
+.id_login {
+    background: rgba(255, 255, 255, .94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: none !important;
+    border-radius: 20px;
+    padding: 45px 40px 35px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+}
+
+.id_login h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #8f1000;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.id_login h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin: 14px auto 30px;
+    background: linear-gradient(90deg, #d53030, #8f1000);
+    border-radius: 2px;
+}
+
+.id_login label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.input-icon-group {
+    position: relative;
+}
+
+.input-icon-group > i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b0807c;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.input-icon-group .form-control {
+    padding-left: 42px;
+}
+
+.id_login .form-control {
+    border: 1.5px solid #e6e0e0;
+    border-radius: 10px;
+    background: #fdfbfb;
+    font-size: .95rem;
+    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.id_login .form-control:focus {
+    border-color: #8f1000;
+    box-shadow: 0 0 0 .15rem rgba(143, 16, 0, .15);
+    background: #fff;
+}
+
+.id_login .form-control::placeholder {
+    color: #b8aeae;
+}
+
+.btn_login {
+    background: linear-gradient(135deg, #d53030, #8f1000);
+    border: none;
+    border-radius: 10px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(143, 16, 0, .35);
+    transition: transform .15s ease, box-shadow .15s ease, background .3s ease;
+    cursor: pointer;
+}
+
+.btn_login:hover {
+    background: linear-gradient(135deg, #ff4040, #a81400);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(143, 16, 0, .45);
+}
+
+.btn_login:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(143, 16, 0, .35);
+}
+
+.btn_login:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.text_dkm {
+    color: #777;
+    font-size: .9rem;
+    margin-bottom: 8px;
+}
+
+.id_login p.text_dkm a {
+    color: #8f1000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.id_login p.text_dkm a:hover {
+    text-decoration: underline !important;
+}
+
+.btn_dkm {
+    display: inline-block;
+    padding: 10px 32px;
+    border: 2px solid #8f1000;
+    border-radius: 50px;
+    color: #8f1000 !important;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.btn_dkm:hover {
+    background: #8f1000;
+    color: #fff !important;
+}
+
+.btn_id {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 20px auto 0;
+    height: auto;
+}
+
+.btn_id a {
+    border-right: none !important;
+    background: rgba(255, 255, 255, .85);
+    padding: 8px 22px !important;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #5a3a1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+}
+
+.btn_id a:hover {
+    background: #fff;
+    color: #8f1000 !important;
+}
+
+#loginMess,
+#regMess {
+    text-align: center;
+    font-weight: 600;
+    min-height: 0;
+}
+
+#loginMess:not(:empty),
+#regMess:not(:empty) {
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 16px !important;
+}
+
+#modalMsg .modal-content {
+    border-radius: 14px;
+    border: none;
+    overflow: hidden;
+}
+
+#modalMsg .modal-header {
+    background: linear-gradient(135deg, #d53030, #8f1000);
+    border: none;
+}
+
+#modalMsg .modal-title-content {
+    color: #fff;
+    font-weight: 700;
+}
+
+#modalMsg .close {
+    color: #fff;
+    text-shadow: none;
+    opacity: .85;
+}
+
+#modalMsg .close:hover {
+    opacity: 1;
+}
+
+@media (max-width: 576px) {
+    .main_login {
+        margin-top: 15px;
+    }
+
+    .id_login {
+        padding: 35px 22px 28px;
+        border-radius: 16px;
+    }
+
+    .btn_id {
+        gap: 10px;
+    }
+
+    .btn_id a {
+        padding: 8px 16px !important;
+        font-size: .9rem;
+    }
+}
