@@ -603,7 +603,7 @@
                         <div class="row g-0 h-100">
                             <div class="col-12 col-lg-5 news-frame__banner">
                                 <a href="/">
-                                    <img src="{{ site_setting('banner_news') ?: '/img/bgHero_shxt.webp' }}" alt="Sơn Hà Xã Tắc Mobile"></a>
+                                    <img src="{{ site_setting('banner_news') ?: '/img/bgHero_shxt.webp' }}" alt="JX Kiểm Hiệp 1 Mobile"></a>
                             </div>
                             <div class="col-12 col-lg-7 news-frame__panel">
                                 <ul class="nav news-frame__tabs" role="tablist">

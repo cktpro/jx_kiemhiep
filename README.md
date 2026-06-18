@@ -1,9 +1,9 @@
-# Sơn Hà Xã Tắc Mobile - Laravel (chuyển đổi từ ASP.NET WebForms)
+# JX Kiếm Hiệp Mobile - Laravel (chuyển đổi từ ASP.NET WebForms)
 
 Dự án này là bản chuyển đổi các trang **công khai** (outside) của project ASP.NET
 WebForms `WebDaiChienTongKim` sang **Laravel 11 / PHP 8.2**, giữ nguyên database
 SQL Server (`account` + `jxm_news`) qua driver **PDO_SQLSRV/sqlsrv**, không thay
-đổi schema/dữ liệu. **Khu vực quản trị (Admin6) không thuộc phạm vi chuyển đổi.**
+đổi schema/dữ liệu.
 
 > ⚠️ Project được hand-author (viết tay từng file) trong sandbox không có
 > Composer/PHP/artisan. Bạn cần chạy `composer install` trên máy có PHP 8.2 +
@@ -320,7 +320,68 @@ không khớp, việc đăng ký trước vẫn là cách an toàn nhất).
   Bản `DanhSachTinV2.aspx` (có tab AJAX theo danh mục) **không** được dùng vì
   không nằm trong route đang hoạt động.
 
-## 6. Phạm vi KHÔNG chuyển đổi (out of scope)
+## 6. Cập nhật SQL Server 2014 trên Windows Server 2016
+
+Laravel yêu cầu driver **ODBC Driver 18 for SQL Server** — driver này chỉ tương
+thích với SQL Server 2014 **SP3 + CU4 trở lên**. Nếu chưa cập nhật, kết nối từ
+PHP sẽ bị lỗi `SSL Provider: The certificate chain was issued by an authority that is not trusted`.
+
+### Bước 1 — Cài Service Pack 3 (SP3)
+
+> Bắt buộc cài trước CU.
+
+**SQL Server 2014 SP3** — [Tải về (~580 MB)](https://download.microsoft.com/download/7/9/f/79f4584a-a957-436b-8534-3397f33790a6/SQLServer2014SP3-KB4022619-x64-ENU.exe)
+
+```
+https://download.microsoft.com/download/7/9/f/79f4584a-a957-436b-8534-3397f33790a6/SQLServer2014SP3-KB4022619-x64-ENU.exe
+```
+
+1. Chạy file `.exe` với quyền Administrator.
+2. Wizard sẽ phát hiện instance hiện tại — chọn **Upgrade** và làm theo hướng dẫn.
+3. Sau khi hoàn tất, SQL Server service sẽ tự restart.
+4. Kiểm tra: mở **SQL Server Management Studio (SSMS)** → chạy
+   `SELECT @@VERSION` → phải thấy `12.0.6024` hoặc cao hơn.
+
+### Bước 2 — Cài Cumulative Update 4 (CU4 for SP3)
+
+**SQL Server 2014 SP3 CU4** — [Tải về (~60 MB)](https://download.microsoft.com/download/a/5/a/a5aacc94-29a5-4890-90bd-847320ee0e93/SQLServer2014-KB4500181-x64.exe)
+
+```
+https://download.microsoft.com/download/a/5/a/a5aacc94-29a5-4890-90bd-847320ee0e93/SQLServer2014-KB4500181-x64.exe
+```
+
+1. Chạy file `.exe` sau khi đã cài SP3 xong.
+2. Làm theo wizard — chọn đúng instance cần cập nhật.
+3. SQL Server service restart lại sau khi hoàn tất.
+4. Kiểm tra: `SELECT @@VERSION` → phải thấy `12.0.6329` hoặc cao hơn.
+
+### Bước 3 — Khởi động lại máy chủ
+
+```powershell
+Restart-Computer
+```
+
+Sau khi restart, thử kết nối lại từ PHP:
+
+```bash
+php artisan tinker
+>>> DB::connection('sqlsrv')->select('SELECT 1 AS ok')
+```
+
+> **Lưu ý:** Nếu vẫn lỗi SSL sau khi cập nhật, thêm `TrustServerCertificate=true`
+> vào connection string trong `.env`:
+> ```env
+> DB_SQLSRV_TRUST_SERVER_CERTIFICATE=true
+> ```
+> hoặc thêm vào `config/database.php` ở block `sqlsrv`:
+> ```php
+> 'options' => [PDO::SQLSRV_ATTR_ENCODING => PDO::SQLSRV_ENCODING_UTF8],
+> 'trust_server_certificate' => true,
+> ```
+
+---
+
+## 7. Phạm vi KHÔNG chuyển đổi (out of scope)
 
 - **Admin6** (toàn bộ khu vực quản trị) - theo yêu cầu ban đầu.
 - Các endpoint AJAX `Home/api/post/subPostList` và `Home/api/post/homePostList`

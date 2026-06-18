@@ -12,7 +12,7 @@
     @if($page === 'news_detail')
         <div class="alert alert-info">
             Dùng <code>{title}</code> và <code>{description}</code> trong các trường dưới đây - hệ thống sẽ tự
-            thay bằng tiêu đề/mô tả của từng bài viết. Ví dụ: <code>Sơn Hà Xã Tắc Mobile | {title}</code>.
+            thay bằng tiêu đề/mô tả của từng bài viết. Ví dụ: <code>JX Kiểm Hiệp 1 Mobile | {title}</code>.
         </div>
     @endif
 

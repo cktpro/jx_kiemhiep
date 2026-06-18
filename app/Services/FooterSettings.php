@@ -26,9 +26,9 @@ class FooterSettings
     {
         return [
             'logo' => '/img/logo-kiem-hiep.webp',
-            'logo_alt' => 'Sơn Hà Xã Tắc Mobile',
+            'logo_alt' => 'JX Kiểm Hiệp 1 Mobile',
             'info_lines' => [
-                ['label' => 'Thông tin sản phẩm:', 'value' => 'Sơn Hà Xã Tắc'],
+                ['label' => 'Thông tin sản phẩm:', 'value' => 'JX Kiểm Hiệp 1 Mobile'],
                 ['label' => 'Hệ điều hành hỗ trợ:', 'value' => 'IOS 15 trở lên | Android 5.0 trở lên'],
                 ['label' => 'Dung lượng yêu cầu:', 'value' => '3GB'],
             ],

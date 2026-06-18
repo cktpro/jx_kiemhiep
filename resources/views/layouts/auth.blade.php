@@ -21,7 +21,7 @@
          giống layouts/app.blade.php. --}}
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site_setting('favicon') ?: '/img/logo.webp' }}">
 
-    <meta name="author" content="Võ Lâm 1 Sơn Hà Xã Tắc Mobile">
+    <meta name="author" content="{{ $seo['meta_title'] }}">
     <meta name="keywords" content="{{ $seo['meta_keywords'] }}">
 
     <title>@yield('title', $seo['meta_title'])</title>
@@ -34,7 +34,7 @@
     <meta property="og:image" content="{{ $seo['og_image'] }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Võ Lâm 1 Sơn Hà Xã Tắc Mobile">
+    <meta property="og:site_name" content="JX Kiểm Hiệp 1 Mobile">
 
     <!-- Google -->
     <meta itemprop="name" content="{{ $seo['og_title'] }}">

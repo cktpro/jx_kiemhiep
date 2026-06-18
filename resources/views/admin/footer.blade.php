@@ -71,7 +71,7 @@
                             </div>
                             <div class="col-sm-5">
                                 <label>Nội dung</label>
-                                <input type="text" name="info_lines[{{ $i }}][value]" class="form-control" value="{{ $line['value'] }}" placeholder="Ví dụ: Sơn Hà Xã Tắc">
+                                <input type="text" name="info_lines[{{ $i }}][value]" class="form-control" value="{{ $line['value'] }}" placeholder="Ví dụ: JX Kiểm Hiệp 1 Mobile">
                             </div>
                             <div class="col-sm-2">
                                 <button type="button" class="btn btn-danger btn-block remove-row">
@@ -144,7 +144,7 @@
                     + '</div>'
                     + '<div class="col-sm-5">'
                     + '<label>Nội dung</label>'
-                    + '<input type="text" name="info_lines[' + index + '][value]" class="form-control" placeholder="Ví dụ: Sơn Hà Xã Tắc">'
+                    + '<input type="text" name="info_lines[' + index + '][value]" class="form-control" placeholder="Ví dụ: JX Kiểm Hiệp 1 Mobile">'
                     + '</div>'
                     + '<div class="col-sm-2">'
                     + '<button type="button" class="btn btn-danger btn-block remove-row"><i class="fas fa-trash"></i> Xoá</button>'

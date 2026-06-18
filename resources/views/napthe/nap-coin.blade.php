@@ -212,7 +212,7 @@
                             <i class="fa-solid fa-coins"></i>
                         </div>
                         <h2>Nạp KNB</h2>
-                        <p>Võ Lâm 1 Sơn Hà Xã Tắc Mobile</p>
+                        <p>JX Kiểm Hiệp 1 Mobile</p>
                     </div>
 
                     {{-- Tỉ giá --}}

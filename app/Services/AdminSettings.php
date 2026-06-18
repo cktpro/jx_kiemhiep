@@ -28,7 +28,7 @@ class AdminSettings
     {
         return [
             'admin_title' => 'Admin VLTN',
-            'admin_footer_text' => 'Sơn Hà Xã Tắc Mobile',
+            'admin_footer_text' => 'JX Kiểm Hiệp 1 Mobile',
 
             // Mạng xã hội / cộng đồng (trước đây config/site.php)
             'link_facebook' => config('site.link_facebook'),

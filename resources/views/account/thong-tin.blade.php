@@ -4,7 +4,7 @@
 
 @section('seo_page', 'account')
 
-@section('title', 'Sơn Hà Xã Tắc | Trang Tài Khoản')
+@section('title', 'JX Kiểm Hiệp 1 Mobile | Trang Tài Khoản')
 
 @section('head')
 <style>
