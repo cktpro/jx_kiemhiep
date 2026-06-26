@@ -8,11 +8,16 @@
 
 @section('title', $metaTitle)
 
-@section('head')
+@section('meta_description')
     <meta name="description" content="{{ $metaDescription }}">
+@endsection
+
+@section('og_meta')
     <meta property="og:title" content="{{ $ogTitle }}">
     <meta property="og:description" content="{{ $ogDescription }}">
     <meta property="og:image" content="{{ $ogImage }}">
+    <meta itemprop="name" content="{{ $ogTitle }}">
+    <meta itemprop="description" content="{{ $ogDescription }}">
 @endsection
 
 @push('head-extra')

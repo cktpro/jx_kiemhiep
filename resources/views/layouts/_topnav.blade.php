@@ -44,30 +44,27 @@
     </div>
 </div>
 
-{{-- ── Header desktop + nav pill mobile (bottom bar) ─────────────────────── --}}
-<div class="bg-new {{ $bgNewClass ?? '' }}"
-     @if(!empty($bgNewStyle)) style="{{ $bgNewStyle }}" @endif>
-    <header class="header">
-        <div class="header_inner">
-            <div class="container">
-                <div class="r-menu-header gap-2 py-1">
-                    <a href="/"><img class="r-header-icon" src="/img/logo.webp" alt="icon"></a>
-                    <div>
-                        <ul class="header_inner_lstNavtop cf rs">
-                            @foreach ($navItems as $navItem)
-                            <li>
-                                <a class="d-flex gap-2 align-items-center justify-content-center py-1 py-md-2 {{ $isNavActive($navItem['url_match'] ?? '') ? 'active' : '' }}"
-                                   href="{{ $resolveNavUrl($navItem['url']) }}"
-                                   @if(!empty($navItem['target'])) target="{{ $navItem['target'] }}" @endif>
-                                    <i class="{{ $navItem['icon'] }}"></i><span class="d-none d-md-inline">{{ $navItem['label'] }}</span>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
+{{-- ── Header desktop ──────────────────────────────────────────────────────── --}}
+<header class="header">
+    <div class="header_inner">
+        <div class="container">
+            <div class="r-menu-header gap-2 py-1">
+                <a href="/"><img class="r-header-icon" src="/img/logo.webp" alt="icon"></a>
+                <div>
+                    <ul class="header_inner_lstNavtop cf rs">
+                        @foreach ($navItems as $navItem)
+                        <li>
+                            <a class="d-flex gap-2 align-items-center justify-content-center py-1 py-md-2 {{ $isNavActive($navItem['url_match'] ?? '') ? 'active' : '' }}"
+                               href="{{ $resolveNavUrl($navItem['url']) }}"
+                               @if(!empty($navItem['target'])) target="{{ $navItem['target'] }}" @endif>
+                                <i class="{{ $navItem['icon'] }}"></i><span class="d-none d-md-inline">{{ $navItem['label'] }}</span>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
-            <div class="fixCen"><h1 class="rs"></h1></div>
         </div>
-    </header>
-</div>
+        <div class="fixCen"><h1 class="rs"></h1></div>
+    </div>
+</header>

@@ -80,11 +80,11 @@
 
 {{-- ── Content card ─────────────────────────────────────────────────────────── --}}
 <div class="container">
-    <div class="row justify-content-md-center main_login">
-        <div class="col-md-12 col-lg-8 col-xl-6 id_login">
-            @yield('content')
+        <div class="row justify-content-md-center main_login">
+            <div class="col-md-12 col-lg-8 col-xl-6 id_login">
+                @yield('content')
+            </div>
         </div>
-    </div>
 </div>
 
 {{-- ── Footer — clone từ layouts/app.blade.php ─────────────────────────────── --}}

@@ -175,7 +175,7 @@
                             </div>
                         </div>
                         <small class="form-text text-muted">
-                            Chọn ảnh để upload (ưu tiên), hoặc nhập URL ảnh. Để trống cả hai để dùng ảnh nền mặc định có sẵn.
+                            Chọn ảnh để upload (ưu tiên), hoặc nhập <strong>đường dẫn tương đối</strong> (ví dụ: <code>/img/ten-anh.webp</code>) — <strong>không</strong> nhập URL có <code>http://</code>. Để trống cả hai để dùng ảnh nền mặc định có sẵn.
                         </small>
                     </div>
                 @endforeach
@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <small class="form-text text-muted">
-                        Để trống để dùng ảnh mặc định (<code>/img/bgHero_shxt.webp</code>).
+                        Dùng đường dẫn tương đối (ví dụ: <code>/img/bgHero_shxt.webp</code>) — <strong>không</strong> nhập URL đầy đủ có <code>http://</code> vì sẽ bị lỗi khi đổi domain / server. Để trống để dùng ảnh mặc định.
                     </small>
                 </div>
             </div>

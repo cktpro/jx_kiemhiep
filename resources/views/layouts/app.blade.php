@@ -30,12 +30,17 @@
 
     @yield('head')
 
-    @php $bgMobile = site_setting('bg_mobile'); @endphp
-    @if($bgMobile)
+    @php $bgDesktop = site_setting('bg_desktop'); $bgMobile = site_setting('bg_mobile'); @endphp
+    @if($bgDesktop || $bgMobile)
     <style>
+        @if($bgDesktop)
+        .bg-new { background: url('{{ $bgDesktop }}') center top / 100% auto no-repeat #ede8d0 !important; }
+        @endif
+        @if($bgMobile)
         @@media (max-width: 768px) {
-            body { background-image: url('{{ $bgMobile }}') !important; }
+            .bg-new { background: url('{{ $bgMobile }}') center top / 100% auto no-repeat #ede8d0 !important; }
         }
+        @endif
     </style>
     @endif
 
@@ -50,19 +55,29 @@
 
     <title>@yield('title', $seo['meta_title'])</title>
 
-    <meta name="description" content="{{ $seo['meta_description'] }}">
+    @hasSection('meta_description')
+        @yield('meta_description')
+    @else
+        <meta name="description" content="{{ $seo['meta_description'] }}">
+    @endif
 
     <!-- Open Graph -->
-    <meta property="og:title" content="{{ $seo['og_title'] }}">
-    <meta property="og:description" content="{{ $seo['og_description'] }}">
-    <meta property="og:image" content="{{ $seo['og_image'] }}">
+    @hasSection('og_meta')
+        @yield('og_meta')
+    @else
+        <meta property="og:title" content="{{ $seo['og_title'] }}">
+        <meta property="og:description" content="{{ $seo['og_description'] }}">
+        <meta property="og:image" content="{{ $seo['og_image'] }}">
+    @endif
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="JX Kiểm Hiệp 1 Mobile">
 
     <!-- Google -->
-    <meta itemprop="name" content="{{ $seo['og_title'] }}">
-    <meta itemprop="description" content="{{ $seo['og_description'] }}">
+    @sectionMissing('og_meta')
+        <meta itemprop="name" content="{{ $seo['og_title'] }}">
+        <meta itemprop="description" content="{{ $seo['og_description'] }}">
+    @endif
 
     <meta name="robots" content="index,follow">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -76,11 +91,8 @@
 
     @stack('head-extra')
 </head>
-@php $bgDesktop = site_setting('bg_desktop'); @endphp
-<body @if($bgDesktop) style="background: url('{{ $bgDesktop }}') center top / 100% auto no-repeat #e6ebe3 !important;" @endif>
-    @include('layouts._topnav', [
-        'bgNewStyle' => '',
-    ])
+<body class="bg-new">
+    @include('layouts._topnav')
 
     <div>
         @yield('content')

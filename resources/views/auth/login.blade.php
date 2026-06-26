@@ -19,7 +19,7 @@
             <label style="font-size: smaller" for="username">Tên tài khoản</label>
             <div class="input-icon-group">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Tài khoản" maxlength="16">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Tài khoản" maxlength="{{ site_setting('max_acc_len') }}">
             </div>
         </div>
 
@@ -27,7 +27,7 @@
             <label style="font-size: smaller" for="password">Mật khẩu</label>
             <div class="input-icon-group">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" maxlength="16">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" maxlength="{{ site_setting('max_acc_len') }}">
             </div>
         </div>
 
@@ -48,6 +48,8 @@
     <script>
         $(function () {
             var submitUrl = @json($isDaiLy ? '/dai-ly' : '/dang-nhap');
+            var minLen = @json((int) site_setting('min_acc_len'));
+            var maxLen = @json((int) site_setting('max_acc_len'));
 
             function doLogin() {
                 var username = $('#username').val().trim();
@@ -55,12 +57,12 @@
 
                 $('#loginMess').text('');
 
-                if (username.length < 6 || username.length > 16) {
-                    $('#loginMess').text('Tài khoản phải từ 6 đến 16 ký tự');
+                if (username.length < minLen || username.length > maxLen) {
+                    $('#loginMess').text('Tài khoản phải từ ' + minLen + ' đến ' + maxLen + ' ký tự');
                     return;
                 }
-                if (password.length < 6 || password.length > 16) {
-                    $('#loginMess').text('Mật khẩu phải từ 6 đến 16 ký tự');
+                if (password.length < minLen || password.length > maxLen) {
+                    $('#loginMess').text('Mật khẩu phải từ ' + minLen + ' đến ' + maxLen + ' ký tự');
                     return;
                 }
 
@@ -87,7 +89,7 @@
             }
 
             $('#btnLogin').on('click', doLogin);
-            $('#password').on('keypress', function (e) {
+            $('#username, #password').on('keypress', function (e) {
                 if (e.which === 13) { doLogin(); }
             });
         });
