@@ -5,15 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Eloquent model cho bảng dbo.Category (database "jxm_news", SQL Server)
- * - port từ DataClasses2.designer.cs (Category, TableAttribute Name="dbo.Category")
- *
- * Lưu ý: tên bảng thật trong DB là "Category" (số ít), khác với tên
- * property "Categories" trong DataContext gốc.
+ * Eloquent model cho bảng Category (database "jxm_news", MariaDB)
  */
 class Category extends Model
 {
-    protected $connection = 'sqlsrv_news';
+    protected $connection = 'mysql_news';
 
     protected $table = 'Category';
 

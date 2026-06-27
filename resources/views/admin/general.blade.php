@@ -55,6 +55,32 @@
 
         <div class="card card-primary card-outline">
             <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-link mr-1"></i> Link đăng nhập / đăng ký</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="link_login">Link trang đăng nhập</label>
+                    <input type="text" id="link_login" name="link_login" class="form-control"
+                        value="{{ old('link_login', $settings['link_login']) }}" maxlength="250">
+                    <small class="form-text text-muted">
+                        Mặc định: <code>/dang-nhap</code>. Hiển thị ở: menu điều hướng, nút "Đăng Nhập Ngay"
+                        ở trang đăng ký / quên mật khẩu, và các ảnh trên trang chủ.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="link_register">Link trang đăng ký</label>
+                    <input type="text" id="link_register" name="link_register" class="form-control"
+                        value="{{ old('link_register', $settings['link_register']) }}" maxlength="250">
+                    <small class="form-text text-muted">
+                        Mặc định: <code>/dang-ky</code>. Hiển thị ở: menu điều hướng, nút "Đăng Ký Ngay"
+                        ở trang đăng nhập / quên mật khẩu.
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-primary card-outline">
+            <div class="card-header">
                 <h3 class="card-title"><i class="fas fa-share-alt mr-1"></i> Mạng xã hội / Cộng đồng</h3>
             </div>
             <div class="card-body">
@@ -110,6 +136,15 @@
                         value="{{ old('link_tai_game', $settings['link_tai_game']) }}" maxlength="250">
                     <small class="form-text text-muted">
                         Hiển thị ở: link "Tải game" trong footer trang chủ.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="link_download_googleplay">Link tải game (Google Play)</label>
+                    <input type="text" id="link_download_googleplay" name="link_download_googleplay" class="form-control"
+                        value="{{ old('link_download_googleplay', $settings['link_download_googleplay']) }}" maxlength="250">
+                    <small class="form-text text-muted">
+                        Hiển thị ở: icon "Tải Google Play" trong sidebar nổi.
                     </small>
                 </div>
 

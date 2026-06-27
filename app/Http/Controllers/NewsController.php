@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
  *  - ChiTietTinV2.aspx + .aspx.cs (route "chitiettin": "tin-tuc/{link}.{Id}.aspx" -> ChiTietTinV2.aspx)
  *  - DanhSachTin.aspx + .aspx.cs  (route "alltin": "tin-tuc/all.aspx" -> DanhSachTin.aspx)
  *
- * Database: jxm_news (connection "sqlsrv_news") - bảng FK_News + Category.
+ * Database: jxm_news (connection "mysql_news") - bảng FK_News + Category.
  */
 class NewsController extends Controller
 {

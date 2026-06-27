@@ -33,6 +33,26 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="slug">
+                        Slug (URL)
+                        <small class="text-muted ml-1">— để trống sẽ tự động tạo từ tiêu đề</small>
+                    </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text text-muted">/tin-tuc/</span>
+                        </div>
+                        <input type="text" id="slug" name="slug" class="form-control"
+                               value="{{ old('slug', $news->attributes['slug'] ?? '') }}"
+                               placeholder="vi-du-slug-bai-viet">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-outline-secondary" id="btn-gen-slug" title="Tạo từ tiêu đề">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="sub_content">Tóm tắt</label>
                     <textarea id="sub_content" name="sub_content" class="form-control" rows="3">{{ old('sub_content', $news->fksubcontent ?? '') }}</textarea>
                 </div>
@@ -86,9 +106,46 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
         $(function () {
-            $('#txtSummernote').summernote({
-                height: 250,
+            $('#txtSummernote').summernote({ height: 250 });
+
+            function slugifyVn(str) {
+                const map = {
+                    'á':'a','à':'a','ạ':'a','ả':'a','ã':'a','â':'a','ấ':'a','ầ':'a','ậ':'a','ẩ':'a','ẫ':'a','ă':'a','ắ':'a','ằ':'a','ặ':'a','ẳ':'a','ẵ':'a',
+                    'Á':'a','À':'a','Ạ':'a','Ả':'a','Ã':'a','Â':'a','Ấ':'a','Ầ':'a','Ậ':'a','Ẩ':'a','Ẫ':'a','Ă':'a','Ắ':'a','Ằ':'a','Ặ':'a','Ẳ':'a','Ẵ':'a',
+                    'é':'e','è':'e','ẹ':'e','ẻ':'e','ẽ':'e','ê':'e','ế':'e','ề':'e','ệ':'e','ể':'e','ễ':'e',
+                    'É':'e','È':'e','Ẹ':'e','Ẻ':'e','Ẽ':'e','Ê':'e','Ế':'e','Ề':'e','Ệ':'e','Ể':'e','Ễ':'e',
+                    'ó':'o','ò':'o','ọ':'o','ỏ':'o','õ':'o','ô':'o','ố':'o','ồ':'o','ộ':'o','ổ':'o','ỗ':'o','ơ':'o','ớ':'o','ờ':'o','ợ':'o','ở':'o','ỡ':'o',
+                    'Ó':'o','Ò':'o','Ọ':'o','Ỏ':'o','Õ':'o','Ô':'o','Ố':'o','Ồ':'o','Ộ':'o','Ổ':'o','Ỗ':'o','Ơ':'o','Ớ':'o','Ờ':'o','Ợ':'o','Ở':'o','Ỡ':'o',
+                    'ú':'u','ù':'u','ụ':'u','ủ':'u','ũ':'u','ư':'u','ứ':'u','ừ':'u','ự':'u','ử':'u','ữ':'u',
+                    'Ú':'u','Ù':'u','Ụ':'u','Ủ':'u','Ũ':'u','Ư':'u','Ứ':'u','Ừ':'u','Ự':'u','Ử':'u','Ữ':'u',
+                    'í':'i','ì':'i','ị':'i','ỉ':'i','ĩ':'i','Í':'i','Ì':'i','Ị':'i','Ỉ':'i','Ĩ':'i',
+                    'đ':'d','Đ':'d',
+                    'ý':'y','ỳ':'y','ỵ':'y','ỷ':'y','ỹ':'y','Ý':'y','Ỳ':'y','Ỵ':'y','Ỷ':'y','Ỹ':'y',
+                };
+                return str
+                    .split('').map(c => map[c] || c).join('')
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^-+|-+$/g, '')
+                    .replace(/-+/g, '-');
+            }
+
+            // Nút tạo slug từ tiêu đề
+            $('#btn-gen-slug').on('click', function () {
+                const title = $('#title').val().trim();
+                if (title) $('#slug').val(slugifyVn(title));
             });
+
+            // Bài mới: tự điền slug theo tiêu đề khi chưa có slug
+            @if(!$news)
+            $('#title').on('input', function () {
+                if ($('#slug').data('manual')) return;
+                $('#slug').val(slugifyVn($(this).val().trim()));
+            });
+            $('#slug').on('input', function () {
+                $(this).data('manual', $(this).val() !== '');
+            });
+            @endif
         });
     </script>
 @endsection

@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Eloquent model cho bảng dbo.Account_Habitus (database "account", SQL Server)
- * - port từ DataClasses1.designer.cs (Account_Habitus)
+ * Eloquent model cho bảng Account_Habitus (database "account", MariaDB)
  *
  * Bảng lưu thông tin "thói quen"/gói cước/điểm mở rộng đi kèm Account_Info,
  * được tạo cùng lúc với Account_Info khi đăng ký tài khoản mới.
  */
 class AccountHabitus extends Model
 {
-    protected $connection = 'sqlsrv';
+    protected $connection = 'mysql';
 
     protected $table = 'Account_Habitus';
 

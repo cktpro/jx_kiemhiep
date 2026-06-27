@@ -136,7 +136,7 @@
             <a href="{{ site_setting('link_download_ios') }}" target="_blank" class="jx-aside__item jx-aside__item--downappstore" title="Tải iOS"></a>
         </li>
         <li>
-            <a href="{{ route('tai-game') }}" class="jx-aside__item jx-aside__item--downggplay" title="Tải Google Play"></a>
+            <a href="{{ site_setting('link_download_googleplay') }}" target="_blank" class="jx-aside__item jx-aside__item--downggplay" title="Tải Google Play"></a>
         </li>
         <li>
             <a href="{{ site_setting('link_download_android') }}" target="_blank" class="jx-aside__item jx-aside__item--downapk" title="Tải APK"></a>

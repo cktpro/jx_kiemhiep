@@ -51,6 +51,7 @@ class NewsController extends Controller
         $content    = trim((string) $request->input('content'));
         $subContent = trim((string) $request->input('sub_content'));
         $categoryId = (int) $request->input('category_id');
+        $slugInput  = trim((string) $request->input('slug'));
 
         $viewData = [
             'news'       => $news,
@@ -71,19 +72,24 @@ class NewsController extends Controller
         }
 
         if ($id !== null && $news) {
-            $news->title       = $title;
-            $news->fkcontent   = $content;
+            $news->title        = $title;
+            $news->fkcontent    = $content;
             $news->fksubcontent = $subContent;
-            $news->date        = now();
-            $news->categoryId  = $categoryId;
+            $news->date         = now();
+            $news->categoryId   = $categoryId;
+            if ($slugInput !== '') {
+                $news->slug = News::uniqueSlug($slugInput, (int) $id);
+            }
             $news->save();
         } else {
+            $newSlug = $slugInput !== '' ? slugify_vn($slugInput) : null;
             News::create([
                 'title'        => $title,
                 'fkcontent'    => $content,
                 'fksubcontent' => $subContent,
                 'date'         => now(),
                 'categoryId'   => $categoryId,
+                'slug'         => $newSlug,
             ]);
         }
 

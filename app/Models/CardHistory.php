@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CardHistory extends Model
 {
-    protected $connection = 'sqlsrv';
+    protected $connection = 'mysql';
 
     protected $table = 'Card_History';
 

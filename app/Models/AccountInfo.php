@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Eloquent model cho bảng dbo.Account_Info (database "account", SQL Server)
- * - port từ DataClasses1.designer.cs (Account_Info)
+ * Eloquent model cho bảng Account_Info (database "account", MariaDB)
  *
  * Bảng lưu thông tin tài khoản người chơi (đăng nhập game).
  * KHÔNG dùng cho Auth mặc định của Laravel (xem App\Models\User).
  */
 class AccountInfo extends Model
 {
-    protected $connection = 'sqlsrv';
+    protected $connection = 'mysql';
 
     protected $table = 'Account_Info';
 

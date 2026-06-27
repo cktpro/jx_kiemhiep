@@ -38,7 +38,7 @@
         <div class="col-12 margin_top_20 mb-2" style="text-align: center">
             @unless($isDaiLy)
                 <p class="text_dkm"><a href="/quen-mat-khau">Quên mật khẩu?</a></p>
-                <a href="/dang-ky" class="btn_dkm">Đăng Ký Ngay</a>
+                <a href="{{ site_setting('link_register') }}" class="btn_dkm">Đăng Ký Ngay</a>
             @endunless
         </div>
     </div>

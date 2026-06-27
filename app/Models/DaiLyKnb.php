@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Eloquent model cho bảng dbo.DaiLyKNB (database "account", SQL Server)
- * - port từ DataClasses1.designer.cs (DaiLyKNB)
+ * Eloquent model cho bảng DaiLyKNB (database "account", MariaDB)
  *
  * Bảng tài khoản đại lý nạp thẻ (đăng nhập riêng qua route /dai-ly.{Id}).
  */
 class DaiLyKnb extends Model
 {
-    protected $connection = 'sqlsrv';
+    protected $connection = 'mysql';
 
     protected $table = 'DaiLyKNB';
 

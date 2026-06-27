@@ -30,6 +30,10 @@ class AdminSettings
             'admin_title' => 'Admin VLTN',
             'admin_footer_text' => 'JX Kiểm Hiệp 1 Mobile',
 
+            // Link đăng nhập / đăng ký
+            'link_login'    => config('site.link_login'),
+            'link_register' => config('site.link_register'),
+
             // Mạng xã hội / cộng đồng (trước đây config/site.php)
             'link_facebook' => config('site.link_facebook'),
             'link_zalo' => config('site.link_zalo'),
@@ -41,6 +45,7 @@ class AdminSettings
             'link_download_android' => config('site.link_download_android'),
             'link_download_ios' => config('site.link_download_ios'),
             'link_download_default' => config('site.link_download_default'),
+            'link_download_googleplay' => config('site.link_download_googleplay'),
 
             // Số điện thoại nhận OTP đổi SĐT / quên mật khẩu
             'phone_otp' => config('site.phone_otp'),
@@ -71,8 +76,8 @@ class AdminSettings
             // detect active), target ("_blank" hoặc "").
             'nav_items' => json_encode([
                 ['label' => 'Trang chủ',  'icon' => 'fa-solid fa-house',                'url' => '/',              'url_match' => '/',         'target' => ''],
-                ['label' => 'Đăng nhập',  'icon' => 'fa-solid fa-right-to-bracket',     'url' => '/dang-nhap',     'url_match' => 'dang-nhap', 'target' => ''],
-                ['label' => 'Đăng ký',    'icon' => 'fa-solid fa-user-plus',            'url' => '/dang-ky',       'url_match' => 'dang-ky',   'target' => ''],
+                ['label' => 'Đăng nhập',  'icon' => 'fa-solid fa-right-to-bracket',     'url' => 'setting:link_login',    'url_match' => 'dang-nhap', 'target' => ''],
+                ['label' => 'Đăng ký',    'icon' => 'fa-solid fa-user-plus',            'url' => 'setting:link_register', 'url_match' => 'dang-ky',   'target' => ''],
                 ['label' => 'Nạp thẻ',   'icon' => 'fa-solid fa-credit-card',          'url' => '/nap-coin',      'url_match' => 'nap-coin',  'target' => ''],
                 ['label' => 'Cộng đồng', 'icon' => 'fa-solid fa-users',               'url' => 'setting:link_facebook', 'url_match' => '', 'target' => '_blank'],
                 ['label' => 'Hỗ trợ',    'icon' => 'fa-solid fa-paper-plane',          'url' => 'setting:link_zalo',    'url_match' => '', 'target' => '_blank'],
@@ -95,6 +100,29 @@ class AdminSettings
         }
         if (!isset($stored['bg_mobile']) && isset($stored['bg_home_mobile']) && $stored['bg_home_mobile'] !== '') {
             $stored['bg_mobile'] = $stored['bg_home_mobile'];
+        }
+
+        // Migration: cập nhật nav_items cũ (URL cứng) sang dùng setting: prefix
+        // để link đăng nhập/đăng ký phản ánh đúng link_login / link_register.
+        if (!empty($stored['nav_items'])) {
+            $navItems = json_decode($stored['nav_items'], true);
+            if (is_array($navItems)) {
+                $changed = false;
+                foreach ($navItems as &$item) {
+                    if (($item['url'] ?? '') === '/dang-nhap') {
+                        $item['url'] = 'setting:link_login';
+                        $changed = true;
+                    }
+                    if (($item['url'] ?? '') === '/dang-ky') {
+                        $item['url'] = 'setting:link_register';
+                        $changed = true;
+                    }
+                }
+                unset($item);
+                if ($changed) {
+                    $stored['nav_items'] = json_encode($navItems, JSON_UNESCAPED_UNICODE);
+                }
+            }
         }
 
         $result = [];

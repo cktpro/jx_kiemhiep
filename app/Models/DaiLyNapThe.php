@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class DaiLyNapThe extends Model
 {
-    protected $connection = 'sqlsrv';
+    protected $connection = 'mysql';
 
     protected $table = 'DaiLyNapThe';
 

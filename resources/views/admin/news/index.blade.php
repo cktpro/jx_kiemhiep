@@ -43,6 +43,14 @@
                                 <a href="{{ route('admin.news.form', ['id' => $item->id]) }}" class="btn btn-sm btn-outline-primary" title="Sửa">
                                     <i class="fas fa-pen"></i>
                                 </a>
+                                <button type="button" class="btn btn-sm btn-outline-danger btn-delete" title="Xóa"
+                                    data-id="{{ $item->id }}" data-title="{{ $item->title }}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <form id="form-delete-{{ $item->id }}" method="POST"
+                                    action="{{ route('admin.news.delete', ['id' => $item->id]) }}" class="d-none">
+                                    @csrf
+                                </form>
                             </td>
                         </tr>
                     @empty
@@ -57,4 +65,18 @@
             Hiển thị {{ count($newsList) }} tin mới nhất
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    document.querySelectorAll('.btn-delete').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var title = this.dataset.title;
+            var id    = this.dataset.id;
+            if (confirm('Xóa bài viết:\n"' + title + '"\n\nBạn có chắc không?')) {
+                document.getElementById('form-delete-' + id).submit();
+            }
+        });
+    });
+</script>
 @endsection

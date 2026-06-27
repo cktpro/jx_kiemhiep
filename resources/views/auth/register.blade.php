@@ -45,7 +45,7 @@
 
         <div class="col-12 margin_top_20 mb-2" style="text-align: center">
             <p class="text_dkm">Bạn đã có tài khoản?</p>
-            <a href="/dang-nhap" class="btn_dkm">Đăng Nhập Ngay</a>
+            <a href="{{ site_setting('link_login') }}" class="btn_dkm">Đăng Nhập Ngay</a>
         </div>
     </div>
 @endsection

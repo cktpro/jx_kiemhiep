@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class LichSuDoiSdt extends Model
 {
-    protected $connection = 'sqlsrv';
+    protected $connection = 'mysql';
 
     protected $table = 'LichSuDoiSDT';
 

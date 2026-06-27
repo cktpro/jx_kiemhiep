@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Eloquent model cho bảng dbo.FK_News (database "jxm_news", SQL Server)
- * - port từ DataClasses2.designer.cs (FK_New)
+ * Eloquent model cho bảng FK_News (database "jxm_news", MariaDB)
  *
  * Dùng cho các trang Tin tức / Trang chủ (DefaultV2, ChiTietTinV2, DanhSachTin).
  */
@@ -18,7 +17,7 @@ class News extends Model
      */
     public const DEFAULT_OG_IMAGE = '/images/share-nhtl.png';
 
-    protected $connection = 'sqlsrv_news';
+    protected $connection = 'mysql_news';
 
     protected $table = 'FK_News';
 
@@ -46,7 +45,9 @@ class News extends Model
         });
 
         static::updating(function (self $model): void {
-            if ($model->isDirty('title') || empty($model->slug)) {
+            // Chỉ tự sinh lại khi title thay đổi mà admin KHÔNG tự nhập slug mới,
+            // hoặc khi slug bị trống.
+            if (($model->isDirty('title') && ! $model->isDirty('slug')) || empty($model->slug)) {
                 $model->slug = static::uniqueSlug($model->title, $model->id);
             }
         });

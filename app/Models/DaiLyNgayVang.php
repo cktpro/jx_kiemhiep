@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class DaiLyNgayVang extends Model
 {
-    protected $connection = 'sqlsrv';
+    protected $connection = 'mysql';
 
     protected $table = 'DaiLyNgayVang';
 

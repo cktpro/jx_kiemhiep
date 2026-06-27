@@ -567,15 +567,15 @@
         <div class="d-flex justify-content-center align-items-center my-5">
             <div class="d-flex justify-content-center align-items-center gap-2 feature-bg">
                 <div class="d-none d-md-block">
-                    <a href="/dang-nhap">
+                    <a href="{{ site_setting('link_login') }}">
                         <img width="300" height="200" src="/img/logo-kiem-hiep.webp"></a>
                 </div>
                 <div class="d-none d-md-block">
-                    <a href="/dang-nhap">
+                    <a href="{{ site_setting('link_login') }}">
                         <img class="w-100" src="/home_files/18t.png"></a>
                 </div>
                 <div class="">
-                    <a href="/dang-nhap">
+                    <a href="{{ site_setting('link_login') }}">
                         <img class="w-100" src="/home_files/qrcode.png"></a>
                 </div>
                 <div class="d-flex flex-column gap-1 r-link-down">

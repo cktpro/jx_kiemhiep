@@ -42,8 +42,8 @@
         </div>
 
         <div class="col-12 margin_top_20 mb-2" style="text-align: center">
-            <a href="/dang-nhap" class="btn_dkm">Đăng nhập</a>
-            <a href="/dang-ky" class="btn_dkm">Đăng ký</a>
+            <a href="{{ site_setting('link_login') }}" class="btn_dkm">Đăng nhập</a>
+            <a href="{{ site_setting('link_register') }}" class="btn_dkm">Đăng ký</a>
         </div>
     </div>
 @endsection

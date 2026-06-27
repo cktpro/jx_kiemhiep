@@ -8,6 +8,10 @@
 
 return [
 
+    // Link trang đăng nhập / đăng ký
+    'link_login'    => '/dang-nhap',
+    'link_register' => '/dang-ky',
+
     // Link hướng dẫn tải game (mặc định / fallback)
     'link_tai_game' => env('SITE_LINK_TAI_GAME', '/tin-tuc/[Huong-dan]-tai-game-va-cai-dat.2069.aspx'),
 
@@ -15,6 +19,7 @@ return [
     'link_download_android' => env('SITE_LINK_DOWNLOAD_APK', '/client/jx1SHXT_v2003.apk'),
     'link_download_ios' => env('SITE_LINK_DOWNLOAD_IOS', 'https://testflight.apple.com/join/bnBteSwC'),
     'link_download_default' => env('SITE_LINK_DOWNLOAD_APK', '/client/jx1SHXT_v2003.apk'),
+    'link_download_googleplay' => env('SITE_LINK_DOWNLOAD_GOOGLEPLAY', ''),
 
     // Mạng xã hội / cộng đồng
     'link_facebook' => env('SITE_LINK_FACEBOOK', 'https://www.facebook.com/sonhaxatacmobile2005'),
