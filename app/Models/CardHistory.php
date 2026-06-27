@@ -12,7 +12,7 @@ class CardHistory extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'Card_History';
+    protected $table = 'card_history';
 
     protected $primaryKey = 'iid';
 

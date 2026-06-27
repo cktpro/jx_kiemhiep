@@ -13,7 +13,7 @@ class DaiLyKnb extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'DaiLyKNB';
+    protected $table = 'dailyknb';
 
     protected $primaryKey = 'ID';
 

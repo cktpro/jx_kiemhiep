@@ -14,7 +14,7 @@ class AccountInfo extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'Account_Info';
+    protected $table = 'account_info';
 
     protected $primaryKey = 'iid';
 

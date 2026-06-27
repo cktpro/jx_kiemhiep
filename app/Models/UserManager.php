@@ -15,7 +15,7 @@ class UserManager extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'UserManager';
+    protected $table = 'usermanager';
 
     protected $primaryKey = 'iid';
 

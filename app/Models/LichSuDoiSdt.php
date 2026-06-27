@@ -12,7 +12,7 @@ class LichSuDoiSdt extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'LichSuDoiSDT';
+    protected $table = 'lichsudoisdt';
 
     protected $primaryKey = 'Id';
 
