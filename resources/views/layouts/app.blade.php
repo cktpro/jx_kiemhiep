@@ -151,6 +151,8 @@
         </li>
     </ul>
 
+    @include('partials.contact-float')
+
     @yield('scripts')
 
     <script>

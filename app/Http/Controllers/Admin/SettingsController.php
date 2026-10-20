@@ -55,7 +55,7 @@ class SettingsController extends Controller
         $data = $request->only([
             'admin_title', 'admin_footer_text',
             'link_login', 'link_register',
-            'link_facebook', 'link_zalo', 'link_tiktok', 'link_youtube',
+            'link_facebook', 'link_zalo', 'link_messenger', 'link_tiktok', 'link_youtube',
             'link_tai_game',
             'link_download_android', 'link_download_ios', 'link_download_default', 'link_download_googleplay',
             'phone_otp', 'footer1', 'max_acc_len', 'min_acc_len',

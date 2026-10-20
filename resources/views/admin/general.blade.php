@@ -101,7 +101,18 @@
                         value="{{ old('link_zalo', $settings['link_zalo']) }}" maxlength="250">
                     <small class="form-text text-muted">
                         Hiển thị ở: menu "Hỗ trợ" (header), icon "Nhóm Zalo" trong sidebar nổi,
-                        và link "Hỗ trợ" / "Nhóm Zalo" ở footer trang chủ.
+                        và link "Hỗ trợ" / "Nhóm Zalo" ở footer trang chủ, nút Zalo nổi góc phải màn hình.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="link_messenger">Link Messenger</label>
+                    <input type="text" id="link_messenger" name="link_messenger" class="form-control"
+                        value="{{ old('link_messenger', $settings['link_messenger']) }}" maxlength="250"
+                        placeholder="https://m.me/ten-fanpage">
+                    <small class="form-text text-muted">
+                        Hiển thị ở: nút Messenger nổi góc phải màn hình (máy tính + điện thoại).
+                        Để trống = tự dùng m.me/&lt;tên page&gt; lấy từ link Fanpage Facebook.
                     </small>
                 </div>
 

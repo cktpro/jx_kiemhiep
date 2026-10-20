@@ -37,6 +37,7 @@ class AdminSettings
             // Mạng xã hội / cộng đồng (trước đây config/site.php)
             'link_facebook' => config('site.link_facebook'),
             'link_zalo' => config('site.link_zalo'),
+            'link_messenger' => config('site.link_messenger'),
             'link_tiktok' => config('site.link_tiktok'),
             'link_youtube' => config('site.link_youtube'),
 

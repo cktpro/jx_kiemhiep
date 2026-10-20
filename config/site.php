@@ -24,6 +24,8 @@ return [
     // Mạng xã hội / cộng đồng
     'link_facebook' => env('SITE_LINK_FACEBOOK', 'https://www.facebook.com/sonhaxatacmobile2005'),
     'link_zalo' => env('SITE_LINK_ZALO', 'https://zalo.me/g/jmgpiy387'),
+    // Link Messenger cho nút chat nổi - rỗng = tự suy ra m.me/<tên page> từ link_facebook
+    'link_messenger' => env('SITE_LINK_MESSENGER', ''),
     'link_tiktok' => env('SITE_LINK_TIKTOK', 'https://www.tiktok.com/@pkvolamvietmobi'),
     // (tính năng mới, không có trong code gốc - trước đây icon Youtube ở jxAside dùng tạm link_facebook)
     'link_youtube' => env('SITE_LINK_YOUTUBE', 'https://www.facebook.com/sonhaxatacmobile2005'),
