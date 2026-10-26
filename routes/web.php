@@ -178,6 +178,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/dai-ly-config',[Admin\SettingsController::class, 'dailySave'])->name('admin.daily-config.save');
         Route::get('/cai-dat',       [Admin\SettingsController::class, 'generalIndex'])->name('admin.general');
         Route::post('/cai-dat',      [Admin\SettingsController::class, 'generalSave'])->name('admin.general.save');
+        Route::post('/cai-dat/upload-file', [Admin\FileUploadController::class, 'chunk'])->name('admin.files.chunk');
+        Route::post('/cai-dat/xoa-file',    [Admin\FileUploadController::class, 'delete'])->name('admin.files.delete');
 
         // Quản lý tài khoản Đại lý
         Route::get('/dai-ly',             [Admin\DaiLyAccountController::class, 'index'])->name('admin.dai-ly.index');

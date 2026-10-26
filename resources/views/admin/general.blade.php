@@ -191,6 +191,102 @@
             </div>
         </div>
 
+        {{-- Upload file (APK, ảnh, zip...) vào public/download/ rồi copy link.
+             Upload qua AJAX, chia khúc 5MB (xem App\Services\FileUploadService),
+             nên không phụ thuộc nút "Lưu cài đặt" bên dưới. --}}
+        @php
+            $fmtSize = function (int $bytes): string {
+                if ($bytes >= 1073741824) return number_format($bytes / 1073741824, 2).' GB';
+                if ($bytes >= 1048576) return number_format($bytes / 1048576, 1).' MB';
+                if ($bytes >= 1024) return number_format($bytes / 1024, 0).' KB';
+                return $bytes.' B';
+            };
+        @endphp
+        <div class="card card-primary card-outline" id="file-upload-card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fas fa-cloud-upload-alt mr-1"></i> Upload file &amp; lấy link</h3>
+            </div>
+            <div class="card-body">
+                <div class="form-group mb-2">
+                    <label for="fu-input">Chọn file để upload</label>
+                    <div class="d-flex flex-wrap" style="gap:8px">
+                        <input type="file" id="fu-input" class="form-control-file" style="max-width:420px"
+                            accept=".{{ implode(',.', \App\Services\FileUploadService::ALLOWED_EXTS) }}">
+                        <button type="button" id="fu-start" class="btn btn-primary btn-sm">
+                            <i class="fas fa-upload mr-1"></i> Upload
+                        </button>
+                        <button type="button" id="fu-cancel" class="btn btn-default btn-sm d-none">Huỷ</button>
+                    </div>
+                    <small class="form-text text-muted">
+                        Cho phép: {{ implode(', ', \App\Services\FileUploadService::ALLOWED_EXTS) }}.
+                        Tối đa {{ \App\Services\FileUploadService::MAX_SIZE / 1024 / 1024 }} MB/file.
+                        File lưu vào <code>/{{ \App\Services\FileUploadService::PUBLIC_DIR }}/</code>; trùng tên sẽ tự thêm số (-1, -2...), không ghi đè file cũ.
+                    </small>
+                </div>
+
+                <div id="fu-progress-wrap" class="d-none mb-3">
+                    <div class="progress" style="height:20px">
+                        <div id="fu-progress" class="progress-bar progress-bar-striped progress-bar-animated"
+                            role="progressbar" style="width:0%">0%</div>
+                    </div>
+                    <small id="fu-status" class="text-muted"></small>
+                </div>
+
+                <div id="fu-error" class="alert alert-danger d-none mb-3"></div>
+
+                <div id="fu-result" class="alert alert-success d-none mb-3">
+                    <div class="mb-1"><i class="fas fa-check-circle mr-1"></i> Upload xong: <strong id="fu-result-name"></strong></div>
+                    <div class="input-group input-group-sm">
+                        <input type="text" id="fu-result-link" class="form-control bg-white" readonly>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-dark fu-copy" data-target="fu-result-link">
+                                <i class="fas fa-copy mr-1"></i> Copy link
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="mb-1">File đã upload</label>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered mb-0">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Tên file</th>
+                                <th style="width:90px">Dung lượng</th>
+                                <th style="width:130px">Ngày upload</th>
+                                <th style="min-width:280px">Link</th>
+                                <th style="width:50px"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="fu-tbody">
+                            @forelse($uploadedFiles as $i => $f)
+                                <tr data-name="{{ $f['name'] }}">
+                                    <td class="text-break">{{ $f['name'] }}</td>
+                                    <td>{{ $fmtSize($f['size']) }}</td>
+                                    <td>{{ date('d/m/Y H:i', $f['mtime']) }}</td>
+                                    <td>
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" id="fu-link-{{ $i }}" class="form-control" value="{{ $f['url'] }}" readonly>
+                                            <div class="input-group-append">
+                                                <button type="button" class="btn btn-outline-secondary fu-copy" data-target="fu-link-{{ $i }}" title="Copy link">
+                                                    <i class="fas fa-copy"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-xs btn-danger fu-delete" title="Xoá file"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr class="fu-empty"><td colspan="5" class="text-center text-muted">Chưa có file nào.</td></tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
         {{-- (tính năng mới, không có trong code gốc) Ảnh nền trang chủ / đăng
              nhập / đăng ký - chọn ảnh để upload hoặc nhập URL ảnh. --}}
         <div class="card card-primary card-outline">
@@ -387,6 +483,226 @@
                 }
             }, 4000);
         @endif
+
+        /* ── Upload file & copy link ─────────────────────────────────────── */
+        (function () {
+            var CHUNK_SIZE = {{ \App\Services\FileUploadService::CHUNK_SIZE }};
+            var MAX_SIZE = {{ \App\Services\FileUploadService::MAX_SIZE }};
+            var CHUNK_URL = @json(route('admin.files.chunk'));
+            var DELETE_URL = @json(route('admin.files.delete'));
+            var TOKEN = @json(csrf_token());
+
+            var input = document.getElementById('fu-input');
+            var startBtn = document.getElementById('fu-start');
+            var cancelBtn = document.getElementById('fu-cancel');
+            var progWrap = document.getElementById('fu-progress-wrap');
+            var prog = document.getElementById('fu-progress');
+            var statusEl = document.getElementById('fu-status');
+            var errorEl = document.getElementById('fu-error');
+            var resultEl = document.getElementById('fu-result');
+            var tbody = document.getElementById('fu-tbody');
+            var uploading = false, cancelled = false, rowSeq = 0;
+
+            function fmtSize(b) {
+                if (b >= 1073741824) return (b / 1073741824).toFixed(2) + ' GB';
+                if (b >= 1048576) return (b / 1048576).toFixed(1) + ' MB';
+                if (b >= 1024) return Math.round(b / 1024) + ' KB';
+                return b + ' B';
+            }
+
+            function esc(s) {
+                return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            function showError(msg) {
+                errorEl.textContent = msg;
+                errorEl.classList.remove('d-none');
+            }
+
+            function setProgress(pct, text) {
+                prog.style.width = pct + '%';
+                prog.textContent = pct + '%';
+                statusEl.textContent = text || '';
+            }
+
+            function randomId() {
+                var a = new Uint8Array(16);
+                (window.crypto || window.msCrypto).getRandomValues(a);
+                return Array.prototype.map.call(a, function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+            }
+
+            function sendChunk(fd) {
+                return fetch(CHUNK_URL, {
+                    method: 'POST', body: fd, credentials: 'same-origin',
+                    headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' }
+                }).then(function (res) {
+                    if (res.status === 419) throw { fatal: true, message: 'Phiên đăng nhập đã hết hạn, hãy tải lại trang (F5) rồi upload lại.' };
+                    return res.json().catch(function () { return null; }).then(function (data) {
+                        if (res.ok && data && data.ok) return data;
+                        if (data && data.message) throw { fatal: res.status === 422, message: data.message };
+                        throw { fatal: false, message: 'Lỗi server (' + res.status + ').' };
+                    });
+                });
+            }
+
+            // Thử lại tối đa 3 lần khi lỗi mạng / lỗi server tạm thời.
+            function sendWithRetry(fd, attempt) {
+                return sendChunk(fd).catch(function (err) {
+                    if (err && err.fatal) throw err;
+                    if (attempt >= 3 || cancelled) throw err;
+                    return new Promise(function (r) { setTimeout(r, 1500 * attempt); }).then(function () {
+                        return sendWithRetry(fd, attempt + 1);
+                    });
+                });
+            }
+
+            function addRow(file) {
+                var empty = tbody.querySelector('.fu-empty');
+                if (empty) empty.remove();
+                var id = 'fu-new-' + (rowSeq++);
+                var d = new Date();
+                var pad = function (n) { return ('0' + n).slice(-2); };
+                var tr = document.createElement('tr');
+                tr.setAttribute('data-name', file.name);
+                tr.innerHTML =
+                    '<td class="text-break">' + esc(file.name) + ' <span class="badge badge-success">mới</span></td>' +
+                    '<td>' + fmtSize(file.size) + '</td>' +
+                    '<td>' + pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + '</td>' +
+                    '<td><div class="input-group input-group-sm"><input type="text" id="' + id + '" class="form-control" value="' + esc(file.url) + '" readonly>' +
+                    '<div class="input-group-append"><button type="button" class="btn btn-outline-secondary fu-copy" data-target="' + id + '" title="Copy link"><i class="fas fa-copy"></i></button></div></div></td>' +
+                    '<td class="text-center"><button type="button" class="btn btn-xs btn-danger fu-delete" title="Xoá file"><i class="fas fa-trash"></i></button></td>';
+                tbody.insertBefore(tr, tbody.firstChild);
+            }
+
+            function finish() {
+                uploading = false;
+                startBtn.disabled = false;
+                input.disabled = false;
+                cancelBtn.classList.add('d-none');
+                prog.classList.remove('progress-bar-animated');
+            }
+
+            startBtn.addEventListener('click', function () {
+                var file = input.files && input.files[0];
+                errorEl.classList.add('d-none');
+                resultEl.classList.add('d-none');
+
+                if (!file) { showError('Vui lòng chọn file trước.'); return; }
+                if (file.size <= 0) { showError('File rỗng.'); return; }
+                if (file.size > MAX_SIZE) { showError('File vượt quá giới hạn ' + fmtSize(MAX_SIZE) + '.'); return; }
+
+                var total = Math.ceil(file.size / CHUNK_SIZE);
+                var uploadId = randomId();
+                var started = Date.now();
+
+                uploading = true; cancelled = false;
+                startBtn.disabled = true; input.disabled = true;
+                cancelBtn.classList.remove('d-none');
+                progWrap.classList.remove('d-none');
+                prog.classList.add('progress-bar-animated');
+                prog.classList.remove('bg-danger');
+                setProgress(0, 'Đang upload ' + file.name + ' (' + fmtSize(file.size) + ')...');
+
+                var index = 0;
+                (function next() {
+                    if (cancelled) { finish(); setProgress(0, 'Đã huỷ upload.'); return; }
+
+                    var fd = new FormData();
+                    fd.append('_token', TOKEN);
+                    fd.append('upload_id', uploadId);
+                    fd.append('chunk_index', index);
+                    fd.append('total_chunks', total);
+                    fd.append('file_name', file.name);
+                    fd.append('total_size', file.size);
+                    fd.append('chunk', file.slice(index * CHUNK_SIZE, Math.min(file.size, (index + 1) * CHUNK_SIZE)), 'chunk');
+
+                    sendWithRetry(fd, 1).then(function (data) {
+                        index++;
+                        var sent = Math.min(file.size, index * CHUNK_SIZE);
+                        var secs = Math.max(1, (Date.now() - started) / 1000);
+                        setProgress(Math.floor(sent * 100 / file.size),
+                            fmtSize(sent) + ' / ' + fmtSize(file.size) + ' - ' + fmtSize(sent / secs) + '/s');
+
+                        if (data.done) {
+                            finish();
+                            setProgress(100, 'Hoàn tất.');
+                            document.getElementById('fu-result-name').textContent = data.file.name;
+                            document.getElementById('fu-result-link').value = data.file.url;
+                            resultEl.classList.remove('d-none');
+                            addRow(data.file);
+                            input.value = '';
+                            return;
+                        }
+                        next();
+                    }).catch(function (err) {
+                        finish();
+                        prog.classList.add('bg-danger');
+                        showError((err && err.message) ? err.message : 'Upload thất bại, vui lòng thử lại.');
+                    });
+                })();
+            });
+
+            cancelBtn.addEventListener('click', function () { cancelled = true; });
+
+            window.addEventListener('beforeunload', function (e) {
+                if (uploading) { e.preventDefault(); e.returnValue = ''; }
+            });
+
+            function copyText(text, btn) {
+                var done = function () {
+                    var old = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i>' + (btn.textContent.trim() ? ' Đã copy' : '');
+                    btn.classList.add('btn-success');
+                    setTimeout(function () { btn.innerHTML = old; btn.classList.remove('btn-success'); }, 1500);
+                };
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+                } else {
+                    fallback();
+                }
+                function fallback() {
+                    var ta = document.createElement('textarea');
+                    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+                    document.body.appendChild(ta); ta.select();
+                    try { document.execCommand('copy'); done(); } catch (e) { window.prompt('Copy link:', text); }
+                    ta.remove();
+                }
+            }
+
+            document.getElementById('file-upload-card').addEventListener('click', function (e) {
+                var copyBtn = e.target.closest('.fu-copy');
+                if (copyBtn) {
+                    var el = document.getElementById(copyBtn.getAttribute('data-target'));
+                    if (el) copyText(el.value, copyBtn);
+                    return;
+                }
+
+                var delBtn = e.target.closest('.fu-delete');
+                if (delBtn) {
+                    var tr = delBtn.closest('tr');
+                    var name = tr.getAttribute('data-name');
+                    if (!window.confirm('Xoá file "' + name + '"?\nLink tới file này sẽ không tải được nữa.')) return;
+
+                    var fd = new FormData();
+                    fd.append('_token', TOKEN);
+                    fd.append('name', name);
+                    delBtn.disabled = true;
+                    fetch(DELETE_URL, {
+                        method: 'POST', body: fd, credentials: 'same-origin',
+                        headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'application/json' }
+                    }).then(function (res) {
+                        return res.json().catch(function () { return { ok: false, message: 'Lỗi server (' + res.status + ').' }; });
+                    }).then(function (data) {
+                        if (data.ok) { tr.remove(); return; }
+                        delBtn.disabled = false;
+                        window.alert(data.message || 'Không xoá được file.');
+                    }).catch(function () {
+                        delBtn.disabled = false;
+                        window.alert('Không xoá được file (lỗi mạng).');
+                    });
+                }
+            });
+        })();
 
         /* ── Nav items editor ────────────────────────────────────────────── */
         var navItems = (function () {

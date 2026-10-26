@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Services\AdminSettings;
 use App\Services\DaiLySettings;
+use App\Services\FileUploadService;
 use App\Services\FooterSettings;
 use App\Services\ImageUploadService;
 use App\Services\SeoSettings;
@@ -46,6 +47,7 @@ class SettingsController extends Controller
     {
         return view('admin.general', [
             'settings' => AdminSettings::all(),
+            'uploadedFiles' => FileUploadService::list(),
             'saved'    => $request->session()->get('general_saved', false),
         ]);
     }
