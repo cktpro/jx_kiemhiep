@@ -50,7 +50,7 @@
          chung navbar (.jx-topnav-*, .header, .header_inner_lstNavtop...) -
          nạp TRƯỚC id_login_v2.css để file sau có thể override các xung đột
          (body background, chiều cao .header...). --}}
-    <link rel="stylesheet" type="text/css" href="/home_files/styles.css?v=1.0.9">
+    <link rel="stylesheet" type="text/css" href="/home_files/styles.css?v=1.1.1">
     {{-- (tính năng mới, không có trong code gốc) Giao diện mới cho trang đăng nhập/đăng ký --}}
     <link rel="stylesheet" href="/files/id_login_v2.css">
     @php $bgMobileAuth = site_setting('bg_mobile'); @endphp

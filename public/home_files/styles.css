@@ -2463,6 +2463,30 @@ footer {
     height: 137px;
 }
 
+/* Mã QR tải game - ô vuông 124x124 ở chỗ nút Nạp Coin cũ */
+.jx-aside li a.jx-aside__item--qr {
+    width: 124px;
+    height: 124px;
+    margin-bottom: 10px;
+    padding: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 2px solid #c8963e;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+}
+
+.jx-aside__item--qr img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.jx-aside__item--qr:hover {
+    cursor: pointer;
+    filter: brightness(105%);
+}
+
 .jx-aside__item--downappstore {
     margin-bottom: 10px;
     background-image: url('/landinggame/images/_sprites-prod-aside.png');

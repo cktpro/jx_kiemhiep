@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="/files/id_tl.css">
-    <link rel="stylesheet" type="text/css" href="/home_files/styles.css?v=1.0.9">
+    <link rel="stylesheet" type="text/css" href="/home_files/styles.css?v=1.1.1">
     <link rel="stylesheet" href="/files/id_login_v2.css">
     @php $bgMobileAcc = site_setting('bg_mobile'); @endphp
     @if($bgMobileAcc)

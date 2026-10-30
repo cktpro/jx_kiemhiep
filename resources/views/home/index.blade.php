@@ -557,6 +557,21 @@
                 margin-top: 18px;
             }
         }
+
+        /* Mã QR tải game: ô vuông 130x130, cỡ gần bằng ảnh qrcode.png cũ (136x129) */
+        .qr-tai-game {
+            display: block;
+            width: 130px;
+            height: 130px;
+            overflow: hidden;
+            background: #fff;
+            border: 2px solid #c8963e;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+            transition: transform .15s;
+        }
+        .qr-tai-game:hover { transform: translateY(-2px); }
+        .qr-tai-game img { display: block; width: 100%; height: 100%; }
     </style>
 @endpush
 
@@ -574,9 +589,12 @@
                     <a href="{{ site_setting('link_login') }}">
                         <img class="w-100" src="/home_files/18t.png"></a>
                 </div>
-                <div class="">
-                    <a href="{{ site_setting('link_login') }}">
-                        <img class="w-100" src="/home_files/qrcode.png"></a>
+                {{-- Mã QR -> https://kiemhiep1.com/tai-game (thay cho ảnh "Nạp KNB" cũ /home_files/qrcode.png).
+                     Tạo lại ảnh nếu đổi tên miền. --}}
+                <div>
+                    <a href="{{ route('tai-game') }}" class="qr-tai-game" title="Quét mã để tải game">
+                        <img src="/home_files/qr-tai-game.svg" width="130" height="130" alt="QR tải game">
+                    </a>
                 </div>
                 <div class="d-flex flex-column gap-1 r-link-down">
                     <a href="{{ $linkIOS }}" class="spr main_dl-btdl main_dl-ios" target="_blank"></a>

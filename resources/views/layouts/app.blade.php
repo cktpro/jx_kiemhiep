@@ -87,7 +87,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="/home_files/styles.css?v=1.0.9">
+    <link rel="stylesheet" type="text/css" href="/home_files/styles.css?v=1.1.1">
 
     @stack('head-extra')
 </head>
@@ -129,8 +129,16 @@
         <li>
             <a href="#" id="jxAsideToggle" class="jx-aside__item jx-aside__item--toggle" title="Đóng / Mở"></a>
         </li>
+        {{-- Đang ẩn: nút Nạp Coin (tắt chức năng nạp)
         <li>
             <a href="{{ route('napthe.coin') }}" class="jx-aside__item jx-aside__item--topup" title="Nạp Coin"></a>
+        </li>
+        --}}
+        {{-- Mã QR -> https://kiemhiep1.com/tai-game, đặt ở chỗ nút Nạp Coin cũ --}}
+        <li>
+            <a href="{{ route('tai-game') }}" class="jx-aside__item jx-aside__item--qr" title="Quét mã để tải game">
+                <img src="/home_files/qr-tai-game.svg" width="124" height="124" alt="QR tải game">
+            </a>
         </li>
         <li>
             <a href="{{ site_setting('link_download_ios') }}" target="_blank" class="jx-aside__item jx-aside__item--downappstore" title="Tải iOS"></a>
