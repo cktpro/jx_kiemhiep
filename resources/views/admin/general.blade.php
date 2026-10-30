@@ -188,6 +188,17 @@
                         cập từ thiết bị không phải Android/iOS (ví dụ máy tính).
                     </small>
                 </div>
+
+                <div class="form-group">
+                    <label for="link_download_emulator">Link tải game (Giả lập PC)</label>
+                    <input type="text" id="link_download_emulator" name="link_download_emulator" class="form-control"
+                        value="{{ old('link_download_emulator', $settings['link_download_emulator']) }}" maxlength="250"
+                        placeholder="/download/ten-file-gia-lap.apk">
+                    <small class="form-text text-muted">
+                        Hiển thị ở: mục "Giả lập (PC)" trên trang <a href="{{ route('tai-game') }}" target="_blank">/tai-game</a>
+                        (bản APK cài vào LDPlayer, BlueStacks...). Để trống = trang tải game hiện "Đang cập nhật".
+                    </small>
+                </div>
             </div>
         </div>
 

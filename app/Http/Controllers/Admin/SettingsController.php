@@ -59,7 +59,7 @@ class SettingsController extends Controller
             'link_login', 'link_register',
             'link_facebook', 'link_zalo', 'link_messenger', 'link_tiktok', 'link_youtube',
             'link_tai_game',
-            'link_download_android', 'link_download_ios', 'link_download_default', 'link_download_googleplay',
+            'link_download_android', 'link_download_ios', 'link_download_default', 'link_download_googleplay', 'link_download_emulator',
             'phone_otp', 'footer1', 'max_acc_len', 'min_acc_len',
             'bg_desktop', 'bg_mobile',
             'banner_news', 'favicon', 'nav_items',

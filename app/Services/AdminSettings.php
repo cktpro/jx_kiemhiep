@@ -47,6 +47,7 @@ class AdminSettings
             'link_download_ios' => config('site.link_download_ios'),
             'link_download_default' => config('site.link_download_default'),
             'link_download_googleplay' => config('site.link_download_googleplay'),
+            'link_download_emulator' => config('site.link_download_emulator'),
 
             // Số điện thoại nhận OTP đổi SĐT / quên mật khẩu
             'phone_otp' => config('site.phone_otp'),

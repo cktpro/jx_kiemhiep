@@ -20,6 +20,8 @@ return [
     'link_download_ios' => env('SITE_LINK_DOWNLOAD_IOS', 'https://testflight.apple.com/join/bnBteSwC'),
     'link_download_default' => env('SITE_LINK_DOWNLOAD_APK', '/client/jx1SHXT_v2003.apk'),
     'link_download_googleplay' => env('SITE_LINK_DOWNLOAD_GOOGLEPLAY', ''),
+    // Bản APK cho giả lập trên máy tính (LDPlayer, BlueStacks...) - hiện ở trang /tai-game
+    'link_download_emulator' => env('SITE_LINK_DOWNLOAD_EMULATOR', ''),
 
     // Mạng xã hội / cộng đồng
     'link_facebook' => env('SITE_LINK_FACEBOOK', 'https://www.facebook.com/sonhaxatacmobile2005'),

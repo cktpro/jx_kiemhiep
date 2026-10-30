@@ -39,23 +39,59 @@ class HomeController extends Controller
     }
 
     /**
-     * GET /tai-game - tương đương TaiGame.aspx.cs Page_Load:
-     *
-     *   Response.Redirect("/tin-tuc/huong-dan-tai-game.3.aspx");
-     *
-     * Bài viết id=3 là bài "Hướng dẫn" cố định, slug được build lại từ
-     * title hiện tại trong DB (qua News::url) để URL luôn đúng dù title
-     * có thay đổi. Nếu bài viết không còn tồn tại, fallback về trang chủ.
+     * GET /tai-game - trang tải game: Android (APK), iOS (TestFlight) và
+     * bản giả lập PC. Link lấy từ /admin/cai-dat. Trước đây route này
+     * redirect sang bài viết id=3 (TaiGame.aspx gốc).
      */
-    public function taiGame()
+    public function taiGame(Request $request)
     {
-        $news = News::find(3);
+        $ua = (string) $request->userAgent();
+        $device = match (true) {
+            str_contains($ua, 'Android') => 'android',
+            str_contains($ua, 'iPhone') || str_contains($ua, 'iPad') || str_contains($ua, 'iPod') => 'ios',
+            default => 'pc',
+        };
 
-        if ($news) {
-            return redirect($news->url);
+        $guide = trim((string) site_setting('link_tai_game'));
+
+        return view('home.tai-game', [
+            'device' => $device,
+            'downloads' => [
+                'android' => $this->downloadInfo(site_setting('link_download_android') ?: site_setting('link_download_default')),
+                'ios' => $this->downloadInfo(site_setting('link_download_ios')),
+                'emulator' => $this->downloadInfo(site_setting('link_download_emulator')),
+            ],
+            'guideLink' => ($guide !== '' && $guide !== '#' && $guide !== '/tai-game') ? $guide : null,
+        ]);
+    }
+
+    /**
+     * Link + dung lượng/ngày cập nhật (nếu là file trong public/, vd /download/x.apk).
+     *
+     * @return array{url:?string,size:?int,updated:?int}
+     */
+    private function downloadInfo(?string $url): array
+    {
+        $url = trim((string) $url);
+
+        if ($url === '' || $url === '#') {
+            return ['url' => null, 'size' => null, 'updated' => null];
         }
 
-        return redirect('/');
+        $size = $updated = null;
+        $path = parse_url($url, PHP_URL_PATH);
+        $host = parse_url($url, PHP_URL_HOST);
+
+        if ($path && (! $host || $host === request()->getHost())) {
+            $file = realpath(public_path(rawurldecode(ltrim($path, '/'))));
+
+            if ($file && str_starts_with($file, realpath(public_path())) && is_file($file)) {
+                $size = (int) filesize($file);
+                $updated = (int) filemtime($file);
+            }
+        }
+
+        return ['url' => $url, 'size' => $size, 'updated' => $updated];
     }
 
     /**
