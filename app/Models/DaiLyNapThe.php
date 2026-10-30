@@ -12,7 +12,7 @@ class DaiLyNapThe extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'DaiLyNapThe';
+    protected $table = 'dailynapthe';
 
     protected $primaryKey = 'ID';
 

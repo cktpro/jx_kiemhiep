@@ -19,7 +19,7 @@ class News extends Model
 
     protected $connection = 'mysql_news';
 
-    protected $table = 'FK_News';
+    protected $table = 'fk_news';
 
     protected $primaryKey = 'id';
 

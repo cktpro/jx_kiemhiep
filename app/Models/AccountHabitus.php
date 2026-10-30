@@ -14,7 +14,7 @@ class AccountHabitus extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'Account_Habitus';
+    protected $table = 'account_habitus';
 
     protected $primaryKey = 'iid';
 

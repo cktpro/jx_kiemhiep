@@ -25,14 +25,14 @@ class SlideSettings
     public static function defaults(): array
     {
         return self::withIds([
-            ['image' => '/img/giao-dien-nhan-vat.webp', 'alt' => 'Giao diện nhân vật', 'link' => null],
-            ['image' => '/img/he-thong-auto.webp', 'alt' => 'Hệ thống Auto', 'link' => null],
-            ['image' => '/img/he-thong-auto-ingame.webp', 'alt' => 'Hệ thống Auto Ingame', 'link' => null],
-            ['image' => '/img/he-thong-giao-dien.webp', 'alt' => 'Hệ thống giao diện', 'link' => null],
-            ['image' => '/img/he-thong-ky-nang.webp', 'alt' => 'Hệ thống kỹ năng', 'link' => null],
-            ['image' => '/img/he-thong-may-chu.webp', 'alt' => 'Hệ thống máy chủ', 'link' => null],
-            ['image' => '/img/he-thong-uy-thac.webp', 'alt' => 'Hệ thống uỷ thác', 'link' => null],
-            ['image' => '/img/trang-bi-vat-pham.webp', 'alt' => 'Trang bị vật phẩm', 'link' => null],
+            ['image' => '/img/giao-dien-nhan-vat.png', 'alt' => 'Giao diện nhân vật', 'link' => null],
+            ['image' => '/img/he-thong-auto.png', 'alt' => 'Hệ thống Auto', 'link' => null],
+            ['image' => '/img/he-thong-auto-ingame.png', 'alt' => 'Hệ thống Auto Ingame', 'link' => null],
+            ['image' => '/img/he-thong-giao-dien.png', 'alt' => 'Hệ thống giao diện', 'link' => null],
+            ['image' => '/img/he-thong-ky-nang.png', 'alt' => 'Hệ thống kỹ năng', 'link' => null],
+            ['image' => '/img/he-thong-may-chu.png', 'alt' => 'Hệ thống máy chủ', 'link' => null],
+            ['image' => '/img/he-thong-uy-thac.png', 'alt' => 'Hệ thống uỷ thác', 'link' => null],
+            ['image' => '/img/trang-bi-vat-pham.png', 'alt' => 'Trang bị vật phẩm', 'link' => null],
         ]);
     }
 

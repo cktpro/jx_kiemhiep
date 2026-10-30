@@ -31,7 +31,7 @@ class SeoSettings
                 'meta_keywords' => 'võ lâm 1 jx kiểm hiệp 1 mobile, vl1 2005, võ lâm 1 pc, vo lam truyen ky 2005, tống kim, công thành chiến, game kiếm hiệp mobile, mmorpg',
                 'og_title' => 'JX Kiểm Hiệp 1 Mobile – Huyền Thoại Võ Lâm 2005 Trở Lại',
                 'og_description' => 'Tái hiện nguyên bản Võ Lâm 1 PC năm 2005. Sống lại ký ức Tống – Kim, bang hội và những tháng ngày cày cấp nơi phòng net.',
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'news' => [
                 'meta_title' => 'Danh sách bài viết - JX Kiểm Hiệp 1 Mobile',
@@ -39,7 +39,7 @@ class SeoSettings
                 'meta_keywords' => 'tin tức võ lâm, sự kiện jx kiểm hiệp 1 mobile, hướng dẫn vl1 mobile, vo lam truyen ky 2005',
                 'og_title' => 'Tin tức - JX Kiểm Hiệp 1 Mobile',
                 'og_description' => 'Cập nhật tin tức, sự kiện và hướng dẫn mới nhất từ JX Kiểm Hiệp 1 Mobile.',
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'napthe' => [
                 'meta_title' => 'Nạp thẻ - '.site_setting('footer1'),
@@ -47,7 +47,7 @@ class SeoSettings
                 'meta_keywords' => 'nạp thẻ võ lâm, nạp coin jx kiểm hiệp 1 mobile, nạp knb vl1 mobile, vo lam truyen ky 2005',
                 'og_title' => 'Nạp thẻ - JX Kiểm Hiệp 1 Mobile',
                 'og_description' => 'Hướng dẫn nạp thẻ, nạp Coin/KNB nhanh chóng, tỉ lệ ưu đãi cho JX Kiểm Hiệp 1 Mobile.',
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'news_detail' => [
                 'meta_title' => 'JX Kiểm Hiệp 1 Mobile | {title}',
@@ -55,7 +55,7 @@ class SeoSettings
                 'meta_keywords' => 'tin tức võ lâm, sự kiện jx kiểm hiệp 1 mobile, hướng dẫn vl1 mobile, vo lam truyen ky 2005',
                 'og_title' => 'JX Kiểm Hiệp 1 Mobile | {title}',
                 'og_description' => 'SonHaXaTac Mobile | Võ Lâm Truyền Kỳ Mobile | {description}',
-                'og_image' => '/images/share-nhtl.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'daily' => [
                 'meta_title' => 'Đại lý | '.site_setting('footer1'),
@@ -63,7 +63,7 @@ class SeoSettings
                 'meta_keywords' => 'đại lý nạp knb, quản lý đại lý, vo lam truyen ky 2005',
                 'og_title' => 'Đại lý | '.site_setting('footer1'),
                 'og_description' => 'Trang quản lý Đại lý nạp KNB - '.site_setting('footer1'),
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'login' => [
                 'meta_title' => 'Đăng nhập | JX Kiểm Hiệp 1 Mobile',
@@ -71,7 +71,7 @@ class SeoSettings
                 'meta_keywords' => 'đăng nhập võ lâm 1, đăng nhập jx kiểm hiệp 1 mobile, vo lam truyen ky 2005',
                 'og_title' => 'Đăng nhập - JX Kiểm Hiệp 1 Mobile',
                 'og_description' => 'Đăng nhập tài khoản JX Kiểm Hiệp 1 Mobile để tiếp tục hành trình Tống – Kim, bang hội và công thành chiến.',
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'register' => [
                 'meta_title' => 'Đăng ký | JX Kiểm Hiệp 1 Mobile',
@@ -79,7 +79,7 @@ class SeoSettings
                 'meta_keywords' => 'đăng ký võ lâm 1, tạo tài khoản jx kiểm hiệp 1 mobile, vo lam truyen ky 2005',
                 'og_title' => 'Đăng ký - JX Kiểm Hiệp 1 Mobile',
                 'og_description' => 'Đăng ký tài khoản JX Kiểm Hiệp 1 Mobile - tái hiện nguyên bản Võ Lâm 1 PC năm 2005, sống lại ký ức Tống – Kim.',
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'account' => [
                 'meta_title' => 'Tài khoản | JX Kiểm Hiệp 1 Mobile',
@@ -87,7 +87,7 @@ class SeoSettings
                 'meta_keywords' => 'tài khoản võ lâm 1, quản lý tài khoản jx kiểm hiệp 1 mobile, đổi mật khẩu vl1',
                 'og_title' => 'Tài khoản - JX Kiểm Hiệp 1 Mobile',
                 'og_description' => 'Quản lý tài khoản JX Kiểm Hiệp 1 Mobile - xem thông tin, đổi mật khẩu, nạp KNB và giải kẹt tài khoản.',
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
             'doi-sdt' => [
                 'meta_title' => 'Đổi số điện thoại | JX Kiểm Hiệp 1 Mobile',
@@ -95,7 +95,7 @@ class SeoSettings
                 'meta_keywords' => 'đổi số điện thoại võ lâm 1, cập nhật sđt jx kiểm hiệp 1 mobile',
                 'og_title' => 'Đổi số điện thoại - JX Kiểm Hiệp 1 Mobile',
                 'og_description' => 'Cập nhật số điện thoại liên kết với tài khoản JX Kiểm Hiệp 1 Mobile.',
-                'og_image' => 'https://sonhaxatac.mobi/img/sonhaxatac_header_icon.png',
+                'og_image' => 'https://kiemhiep1.com/img/logo-kiem-hiep.webp',
             ],
         ];
     }

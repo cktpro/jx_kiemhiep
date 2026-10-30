@@ -11,7 +11,7 @@ class Category extends Model
 {
     protected $connection = 'mysql_news';
 
-    protected $table = 'Category';
+    protected $table = 'category';
 
     protected $primaryKey = 'Id';
 

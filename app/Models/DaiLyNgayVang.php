@@ -13,7 +13,7 @@ class DaiLyNgayVang extends Model
 {
     protected $connection = 'mysql';
 
-    protected $table = 'DaiLyNgayVang';
+    protected $table = 'dailyngayvang';
 
     protected $primaryKey = 'CfName';
 
