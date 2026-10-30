@@ -80,7 +80,8 @@ class AdminSettings
                 ['label' => 'Trang chủ',  'icon' => 'fa-solid fa-house',                'url' => '/',              'url_match' => '/',         'target' => ''],
                 ['label' => 'Đăng nhập',  'icon' => 'fa-solid fa-right-to-bracket',     'url' => 'setting:link_login',    'url_match' => 'dang-nhap', 'target' => ''],
                 ['label' => 'Đăng ký',    'icon' => 'fa-solid fa-user-plus',            'url' => 'setting:link_register', 'url_match' => 'dang-ky',   'target' => ''],
-                ['label' => 'Nạp thẻ',   'icon' => 'fa-solid fa-credit-card',          'url' => '/nap-coin',      'url_match' => 'nap-coin',  'target' => ''],
+                // Đang ẩn (tắt chức năng nạp):
+                // ['label' => 'Nạp thẻ',   'icon' => 'fa-solid fa-credit-card',          'url' => '/nap-coin',      'url_match' => 'nap-coin',  'target' => ''],
                 ['label' => 'Cộng đồng', 'icon' => 'fa-solid fa-users',               'url' => 'setting:link_facebook', 'url_match' => '', 'target' => '_blank'],
                 ['label' => 'Hỗ trợ',    'icon' => 'fa-solid fa-paper-plane',          'url' => 'setting:link_zalo',    'url_match' => '', 'target' => '_blank'],
                 ['label' => 'Tải game',  'icon' => 'fa-solid fa-download',             'url' => '/tai-game',      'url_match' => 'tai-game',  'target' => ''],

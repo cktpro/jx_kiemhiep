@@ -22,7 +22,9 @@
             <img src="/img/logo.webp" alt="Logo">
         </a>
         <div class="jx-topnav-actions">
+            {{-- Đang ẩn: nút Nạp Thẻ (tắt chức năng nạp)
             <a href="{{ route('napthe.coin') }}" class="jx-topnav-pill jx-topnav-pill--topup">Nạp Thẻ</a>
+            --}}
             <a href="{{ route('tai-game') }}" class="jx-topnav-pill jx-topnav-pill--install">Cài Đặt</a>
             <button type="button" id="jxTopnavBurger" class="jx-topnav-burger" aria-label="Menu">
                 <i class="fa-solid fa-bars"></i>

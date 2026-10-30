@@ -107,8 +107,10 @@ Route::get('/nap-the/{id}/{sv}', [NapTheController::class, 'show'])
     ->name('napthe.show.fixed');
 
 // /nap-coin -> trang nạp KNB (gộp hướng dẫn + form)
-Route::get('/nap-coin', [NapTheController::class, 'showNapCoin'])->name('napthe.coin');
-Route::post('/nap-coin', [NapTheController::class, 'submit']);
+// Đang TẮT: trả về 404. Giữ tên route 'napthe.coin' vì layout dùng route() để tạo link.
+// Bật lại: đổi 2 dòng dưới về [NapTheController::class, 'showNapCoin'] / 'submit'.
+Route::get('/nap-coin', fn() => abort(404))->name('napthe.coin');
+Route::post('/nap-coin', fn() => abort(404));
 
 // "daily" -> /dai-ly.{Id}.aspx -> DangNhapV2.aspx (đã khai báo ở trên: /dai-ly)
 Route::post('/dai-ly-dang-xuat', [DaiLyController::class, 'logout'])->name('daily.logout');

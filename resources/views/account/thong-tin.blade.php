@@ -188,10 +188,12 @@
     </div>
 
     <div class="d-flex gap-3 justify-content-center mt-2 flex-wrap">
+        {{-- Đang ẩn: nút Nạp KNB (tắt chức năng nạp)
         <a href="/nap-coin" class="btn_dkm"
             style="background:linear-gradient(135deg,#d53030,#8f1000);color:#fff!important;border-color:transparent">
             <i class="fa-solid fa-coins me-1"></i> Nạp KNB
         </a>
+        --}}
         <a href="/cap-nhat-so-dien-thoai" class="btn_dkm">
             <i class="fa-solid fa-mobile-screen-button me-1"></i> Đổi số điện thoại
         </a>
