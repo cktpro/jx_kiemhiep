@@ -64,6 +64,57 @@
             font-size: 0.8125rem;
             white-space: nowrap;
         }
+
+        /* Phân trang: styles.css cũ có ".pagination{display:block}" và
+           ".pagination a{display:block;background:#222}" (markup site gốc) đè lên
+           Bootstrap làm các nút xếp dọc full-width -> đặt lại trong phạm vi trang này. */
+        .news-pagination .pagination {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin: 0;
+            padding: 4px 0 0;
+        }
+
+        .news-pagination .page-item {
+            display: block;
+        }
+
+        .news-pagination .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 36px;
+            height: 36px;
+            margin: 0;
+            padding: 0 10px;
+            border: 1px solid #e6d3a3;
+            border-radius: 6px;
+            background: #fff;
+            color: #5a3b00;
+            font-weight: 600;
+            line-height: 1;
+            text-decoration: none;
+            transition: all .15s;
+        }
+
+        .news-pagination a.page-link:hover {
+            border-color: #ff6600;
+            color: #ff6600;
+        }
+
+        .news-pagination .page-item.active .page-link {
+            border-color: #ff6600;
+            background: #ff6600;
+            color: #fff;
+        }
+
+        .news-pagination .page-item.disabled .page-link {
+            background: #fff;
+            color: #5a3b00;
+            opacity: .4;
+        }
     </style>
 @endpush
 
@@ -106,7 +157,7 @@
                 @endforelse
             </div>
 
-            <div class="mt-3">
+            <div class="mt-3 news-pagination">
                 {{ $news->onEachSide(2)->links() }}
             </div>
         </div>
